@@ -1,15 +1,14 @@
-
+import React from "react";
+import Navbar from "./components/Navbar";
+import {BrowserRouter as Router} from 'react-router-dom'
 
 function App() {
   return (
-    <div>
-      <header>
-        <p>
-          Esta é a nossa App
-        </p>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+    </Router>
   );
 }
+
 
 export default App;
