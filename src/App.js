@@ -6,9 +6,8 @@ import { ThemeProvider } from 'styled-components'
 
 const theme = {
   colors: {
-    header: '#000',
-    body: '#fff',
-    footer: '#003333',
+    header: '#0E2A47',
+    footer: '#003333'
   },
 }
 
@@ -29,11 +28,11 @@ function App() {
       </Switch> */}
         </Router>
 
-        {/* <div>
+        <div>
         fdsfsdfdsfsd
         fdsfsdfdsfsd
         <p>reiiii</p>
-      </div> */}
+      </div>
       </>
     </ThemeProvider>
   );

@@ -48,7 +48,7 @@ export const NavItem = styled.li`
   border-bottom: 2px solid transparent;
 
   &:hover {
-    border-bottom: 2px solid #4b59f7;
+    border-bottom: 2px solid #038c8c;
   }
 `;
 
@@ -58,13 +58,14 @@ export const NavLinks = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
+  font-weight: 600;
   padding: 0.5rem 1rem;
   padding-bottom: 0px;
   height: 100%;
 
   
     &:hover {
-      color: #4b59f7;
+      color: #038c8c;
       transition: all 0.3s ease;
     }
   
