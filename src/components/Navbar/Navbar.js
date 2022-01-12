@@ -8,7 +8,8 @@ import {
   NavLinks,
   NavBtnLink
 } from '../styles/NavbarStyles';
-import { Button } from '../styles/GlobalStyles';
+import {Button} from "../styles/ButtonStyles";
+
 
 const Navbar = () => {
   return (
@@ -35,7 +36,7 @@ const Navbar = () => {
             </NavItem>
 
             <NavBtnLink to='/'>
-              <Button primary>SIGN UP</Button>
+              <Button>SIGN UP</Button>
             </NavBtnLink>
 
           </NavMenu>
