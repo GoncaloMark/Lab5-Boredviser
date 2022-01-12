@@ -2,9 +2,8 @@ import styled from 'styled-components'
 import { Link as LinkR } from 'react-router-dom'
 
 export const Nav = styled.nav`
-background: #000;
+background: #5E60CE;
 height: 80px;
-/* margin-top: -80px; */
 display: flex;
 justify-content: center;
 align-items: center;
@@ -25,7 +24,7 @@ max-width: 1100px;
 `
 
 export const NavLogo = styled(LinkR)`
-color: red;
+color: #64DFDF;
 justify-self: flex-start;
 cursor: pointer;
 font-size: 1.5rem;
