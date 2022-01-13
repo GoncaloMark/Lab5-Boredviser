@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from "./components/styles/GlobalStyles";
 import { ThemeProvider } from 'styled-components'
 import {Container} from "./components/styles/ContainerStyles";
+import { Footer } from "./components/Footer/Footer";
 
 
 const theme = {
@@ -40,7 +41,7 @@ function App() {
                     </div>
                     </div>
                 </Container>
-
+<Footer />
 
             </>
         </ThemeProvider>
