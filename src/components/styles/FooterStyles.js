@@ -36,20 +36,21 @@ export const Flinks = styled.a`
   text-decoration: none;
   cursor: pointer;
   &:hover {
-    color: green;
+    color: #038c8c;
     transition: 200ms ease-in;
   }
 `;
 
 export const Heading = styled.p`
   font-size: 18px;
-  color: #038c8c;
+  color: #fff;
   margin-bottom: 10px;
+  margin-top:10px;
   font-weight: bold;
 `;
 
 export const Copyright = styled.p`
-margin-top: 15px;
-text-align: center;
-color: gray;
+  margin-top: 15px;
+  text-align: center;
+  color: gray;
 `;

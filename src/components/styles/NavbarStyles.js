@@ -59,16 +59,15 @@ export const NavLinks = styled(Link)`
   align-items: center;
   text-decoration: none;
   font-weight: 600;
-  padding: 0.5rem 1rem;
-  padding-bottom: 0px;
+  padding: 0.5rem 1rem 0;
   height: 100%;
 
-  
-    &:hover {
-      color: #038c8c;
-      transition: all 0.3s ease;
-    }
-  
+
+  &:hover {
+    color: #038c8c;
+    transition: all 0.3s ease;
+  }
+
 `;
 
 export const NavBtnLink = styled(Link)`

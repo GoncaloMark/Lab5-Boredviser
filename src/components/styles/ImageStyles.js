@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const Image = styled.image`
-  border-radius: 23px;
-  background: #e0e0e0;
-  box-shadow:  -17px 17px 33px #8f8f8f, 17px -17px 33px #ffffff;`
+export const Image = styled.img`
+    display: flex;
+    width: 350px;
+    height: 300px;
+    margin-top: 4rem;
+    margin-right: 20px;
+`

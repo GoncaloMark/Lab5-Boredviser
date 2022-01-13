@@ -11,12 +11,13 @@ export const Container = styled.div`
   width: 800px;
   height: 400px;
   margin: 3rem auto auto;
+  cursor: default;
 
   & h2 {
     color: #fff;
     padding-left: 40px;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     margin-bottom: 1.5rem;
     margin-top: 1.5rem;
   }
@@ -25,5 +26,7 @@ export const Container = styled.div`
     color: #fff;
     padding-left: 40px;
     padding-bottom: 10px;
+    width: 75%;
+    line-height: 1.5rem;
   }
 `
