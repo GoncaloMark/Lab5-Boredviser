@@ -1,13 +1,10 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom"
 import GlobalStyles from "./components/styles/GlobalStyles";
 import { ThemeProvider } from 'styled-components'
-import {Container} from "./components/styles/ContainerStyles";
-import { Footer } from "./components/Footer/Footer";
-import {Image} from "./components/styles/ImageStyles";
-import ImagemLandingPage from "./Images/ImagemLandingPage.png"
-import {ButtonC} from "./components/styles/ButtonStyles";
+import LandingPage from "./components/Paginas/LandingPage";
+import Register from "./components/Paginas/Register";
 
 
 const theme = {
@@ -23,26 +20,20 @@ function App() {
         <ThemeProvider theme={theme}>
             <>
                 <GlobalStyles/>
-                <Router>
 
+                <Router>
                     <Navbar/>
-                    {/*
-        <Route index element={} />
-        <Route path='/' element={} />
-        <Route path='/' element={} />
-        <Route path='/' element={} />
-      */}
+
+                    <Routes>
+
+        <Route index element={<LandingPage/>} />
+        <Route path="Register" element={<Register/>}/>
+
+                    </Routes>
+
+
                 </Router>
 
-                <Container>
-                    <div>
-                    <h2>Get started! Don't get bored!</h2>
-                        <p>Engage in genuine activities, here at Boredviser we are ready to connect you to the most suitable activities, personalized just for you!</p>
-                        <ButtonC>Get Started!</ButtonC>
-                    </div>
-                        <Image src={ImagemLandingPage}/>
-                </Container>
-                <Footer/>
             </>
         </ThemeProvider>
     );
