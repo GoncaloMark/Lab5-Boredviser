@@ -7,3 +7,10 @@ export const Image = styled.img`
     margin-top: 4rem;
     margin-right: 20px;
 `
+
+export const LogoStyle = styled.img`
+  display: flex;
+  width: 150px;
+  height: 100px;
+  margin-top: 40px;
+`

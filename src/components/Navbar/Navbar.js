@@ -9,6 +9,8 @@ import {
   NavBtnLink
 } from '../styles/NavbarStyles';
 import {Button} from "../styles/ButtonStyles";
+import {LogoStyle} from "../styles/ImageStyles";
+import Logo from "../../Images/boredviser_logo.svg"
 
 
 const Navbar = () => {
@@ -16,7 +18,7 @@ const Navbar = () => {
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to='/'>BoredviserLogo</NavLogo>
+          <NavLogo to='/'><LogoStyle src={Logo}/></NavLogo>
 
           <NavMenu>
             <NavItem>

@@ -26,12 +26,12 @@ function App() {
                 <Router>
 
                     <Navbar/>
-                    {/* <Switch>
+                    {/*
         <Route index element={} />
         <Route path='/' element={} />
         <Route path='/' element={} />
         <Route path='/' element={} />
-      </Switch> */}
+      */}
                 </Router>
 
                 <Container>
