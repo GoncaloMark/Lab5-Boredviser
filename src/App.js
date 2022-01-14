@@ -22,6 +22,7 @@ function App() {
                 <GlobalStyles/>
 
                 <Router>
+
                     <Navbar/>
 
                     <Routes>
@@ -30,7 +31,6 @@ function App() {
         <Route path="Register" element={<Register/>}/>
 
                     </Routes>
-
 
                 </Router>
 
