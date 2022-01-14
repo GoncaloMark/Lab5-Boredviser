@@ -7,6 +7,7 @@ import {Container} from "./components/styles/ContainerStyles";
 import { Footer } from "./components/Footer/Footer";
 import {Image} from "./components/styles/ImageStyles";
 import ImagemLandingPage from "./Images/ImagemLandingPage.png"
+import {ButtonC} from "./components/styles/ButtonStyles";
 
 
 const theme = {
@@ -37,6 +38,7 @@ function App() {
                     <div>
                     <h2>Get started! Don't get bored!</h2>
                         <p>Engage in genuine activities, here at Boredviser we are ready to connect you to the most suitable activities, personalized just for you!</p>
+                        <ButtonC>Get Started!</ButtonC>
                     </div>
                         <Image src={ImagemLandingPage}/>
                 </Container>

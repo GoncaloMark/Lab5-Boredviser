@@ -15,18 +15,20 @@ export const Container = styled.div`
 
   & h2 {
     color: #fff;
-    padding-left: 40px;
-    padding-top: 20px;
-    padding-bottom: 10px;
     margin-bottom: 1.5rem;
     margin-top: 1.5rem;
   }
 
   & p {
     color: #fff;
-    padding-left: 40px;
-    padding-bottom: 10px;
     width: 75%;
     line-height: 1.5rem;
+  }
+  
+  & div
+  {
+    padding-left: 40px;
+    padding-bottom: 10px;
+    padding-top: 20px;
   }
 `
