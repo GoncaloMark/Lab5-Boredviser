@@ -25,6 +25,7 @@ export const ButtonC = styled.button`
   --green: #1BFD9C;
   font-size: 15px;
   padding: 0.7em 2.7em;
+  cursor: pointer;
   letter-spacing: 0.06em;
   position: absolute;
   margin-top: 3rem;

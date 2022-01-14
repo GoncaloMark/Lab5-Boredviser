@@ -12,5 +12,4 @@ export const LogoStyle = styled.img`
   display: flex;
   width: 150px;
   height: 100px;
-  margin-top: 40px;
 `
