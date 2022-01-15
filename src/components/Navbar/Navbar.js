@@ -1,4 +1,4 @@
-import {Link, Route, Routes, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {
   Nav,
   NavbarContainer,
@@ -11,8 +11,7 @@ import {
 import {Button} from "../styles/ButtonStyles";
 import {LogoStyle} from "../styles/ImageStyles";
 import Logo from "../../Images/boredviser_logo.svg"
-import Register from "../Paginas/Register";
-import LandingPage from "../Paginas/LandingPage";
+
 
 
 const Navbar = () => {

@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "./components/Navbar/Navbar";
-import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom"
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import GlobalStyles from "./components/styles/GlobalStyles";
 import { ThemeProvider } from 'styled-components'
 import LandingPage from "./components/Paginas/LandingPage";
 import Register from "./components/Paginas/Register";
+import Navbar from "./components/Navbar/Navbar";
 
 
 const theme = {

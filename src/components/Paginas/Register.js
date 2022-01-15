@@ -1,8 +1,6 @@
 import {Link} from "react-router-dom";
 import {ContainerRegister} from "../styles/ContainerStyles";
 import {ButtonC} from "../styles/ButtonStyles";
-import {Image} from "../styles/ImageStyles";
-import ImagemLandingPage from "../../Images/ImagemLandingPage.png";
 import {Footer} from "../Footer/Footer";
 import React from "react";
 import {Input, Label} from "../styles/ResgisterStyles";
