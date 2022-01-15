@@ -14,7 +14,7 @@ function Register()
             <ContainerRegister>
                 <div>
                     <Label>Email</Label>
-                    <Input type="email"/>
+                    <Input type="email" placeholder="smthn@mail.com"/>
                     <Label>Password</Label>
                     <Input type="password"/>
                     <Label>Username</Label>

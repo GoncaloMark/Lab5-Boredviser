@@ -24,23 +24,21 @@ function App() {
     return (
 
         <ThemeProvider theme={theme}>
+
             <>
                 <GlobalStyles/>
 
                 <Router>
-
                     <Navbar/>
 
                     <Routes>
-
-        <Route index element={<LandingPage/>} />
-        <Route path="Register" element={<Register/>}/>
-
+                        <Route index element={<LandingPage/>} />
+                        <Route path="Register" element={<Register/>}/>
                     </Routes>
 
                 </Router>
-
             </>
+
         </ThemeProvider>
     );
 }

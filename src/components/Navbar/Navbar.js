@@ -1,4 +1,4 @@
-import {Link, Route, Routes} from "react-router-dom";
+import {Link, Route, Routes, useLocation} from "react-router-dom";
 import {
   Nav,
   NavbarContainer,
@@ -16,32 +16,59 @@ import LandingPage from "../Paginas/LandingPage";
 
 
 const Navbar = () => {
-  return (
-    <div>
-      <Nav>
+  const location = useLocation();
+  console.log(location.pathname);
 
-        <NavbarContainer>
+  if (location.pathname === "/Register")
+  {
+    return (
+        <div>
+          <Nav>
+            <NavbarContainer>
 
-          <NavLogo to='/'><LogoStyle src={Logo}/></NavLogo>
+              <NavLogo to='/'><LogoStyle src={Logo}/></NavLogo>
 
-          <NavMenu>
+              <NavMenu>
 
-            <NavItem>
-              <NavLinks to="/">
-                Home
-              </NavLinks>
-            </NavItem>
+                <NavItem>
+                  <NavLinks to="/">
+                    Home
+                  </NavLinks>
+                </NavItem>
 
-            <NavBtnLink to='/Register'>
-              <Button>SIGN UP</Button>
-            </NavBtnLink>
+              </NavMenu>
 
-          </NavMenu>
+            </NavbarContainer>
+          </Nav>
+        </div>
+    );
+  } else {
+    return (
+        <div>
+          <Nav>
+            <NavbarContainer>
 
-        </NavbarContainer>
-      </Nav>
-    </div>
-  );
+              <NavLogo to='/'><LogoStyle src={Logo}/></NavLogo>
+
+              <NavMenu>
+
+                <NavItem>
+                  <NavLinks to="/">
+                    Home
+                  </NavLinks>
+                </NavItem>
+
+                <NavBtnLink to='/Register'>
+                  <Button>SIGN UP</Button>
+                </NavBtnLink>
+
+              </NavMenu>
+
+            </NavbarContainer>
+          </Nav>
+        </div>
+    );
+  }
 }
 
 export default Navbar;

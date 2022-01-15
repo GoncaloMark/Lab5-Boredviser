@@ -46,6 +46,6 @@ export const ContainerRegister = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.18);
   width: ${({ theme }) => theme.size.RW};
   height: ${({ theme }) => theme.size.RH};
-  margin: 3rem auto auto;
+  margin: 1rem auto auto;
   cursor: default;
 `
