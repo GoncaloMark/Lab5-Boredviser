@@ -26,8 +26,10 @@ export const ButtonC = styled.button`
   font-size: 15px;
   padding: 0.7em 2.7em;
   letter-spacing: 0.06em;
-  position: absolute;
-  margin-top: 3rem;
+  position: relative;
+  margin-top:  ${({top}) => top};
+  margin-left: ${({margin}) => margin};
+  margin-right:  ${({right}) => right};
   font-family: inherit;
   border-radius: 0.6em;
   overflow: hidden;
