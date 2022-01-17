@@ -6,7 +6,6 @@ import LandingPage from "./components/Paginas/LandingPage";
 import Register from "./components/Paginas/Register";
 import Navbar from "./components/Navbar/Navbar";
 
-
 const theme = {
     colors: {
         header: '#0E2A47',
@@ -16,7 +15,7 @@ const theme = {
         LPW: '800px',
         LPH: '400px',
         RW: '350px',
-        RH: '450px'
+        RH: '350px'
     }
 }
 

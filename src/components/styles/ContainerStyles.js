@@ -48,4 +48,9 @@ export const ContainerRegister = styled.div`
   height: ${({ theme }) => theme.size.RH};
   margin: 1rem auto auto;
   cursor: default;
+  
+  & input
+  {
+    margin-bottom: 2rem;
+  }
 `
