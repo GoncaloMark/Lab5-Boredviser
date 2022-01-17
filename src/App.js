@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import LandingPage from "./components/Paginas/LandingPage";
 import Navbar from "./components/Navbar/Navbar";
 import LogIn from "./components/Paginas/Register";
+import Preferences from "./components/Paginas/Preferences";
 
 const theme = {
     colors: {
@@ -33,6 +34,7 @@ function App() {
                     <Routes>
                         <Route index element={<LandingPage/>} />
                         <Route path="LogIn" element={<LogIn/>}/>
+                        <Route path="Preferences" element={<Preferences/>}/>
                     </Routes>
 
                 </Router>

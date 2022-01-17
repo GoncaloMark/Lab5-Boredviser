@@ -70,5 +70,6 @@ export const ContainerRegister = styled.div`
   {
     color:white;
     margin-top: 1rem;
+    cursor: pointer;
   }
 `

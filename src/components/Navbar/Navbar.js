@@ -18,7 +18,7 @@ const Navbar = () => {
   const location = useLocation();
   console.log(location.pathname);
 
-  if (location.pathname === "/LogIn")
+  if (location.pathname === "/LogIn" || location.pathname === "/Preferences")
   {
     return (
         <div>
