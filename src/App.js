@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import GlobalStyles from "./components/styles/GlobalStyles";
 import { ThemeProvider } from 'styled-components'
 import LandingPage from "./components/Paginas/LandingPage";
-import Register from "./components/Paginas/Register";
 import Navbar from "./components/Navbar/Navbar";
+import LogIn from "./components/Paginas/Register";
 
 const theme = {
     colors: {
@@ -32,7 +32,7 @@ function App() {
 
                     <Routes>
                         <Route index element={<LandingPage/>} />
-                        <Route path="Register" element={<Register/>}/>
+                        <Route path="LogIn" element={<LogIn/>}/>
                     </Routes>
 
                 </Router>

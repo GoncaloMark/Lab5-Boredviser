@@ -2,37 +2,45 @@ import {Link} from "react-router-dom";
 import {ContainerRegister} from "../styles/ContainerStyles";
 import {ButtonC} from "../styles/ButtonStyles";
 import {Footer} from "../Footer/Footer";
-import React from "react";
+import React, {useState} from "react";
 import {Input, Label} from "../styles/ResgisterStyles";
-import {signup, UseAuth} from "../../Firebase/Firebase";
-import {useRef, useState} from "react"
+import {auth} from "../../Firebase/Firebase";
+import {createUserWithEmailAndPassword, onAuthStateChanged, signOut} from "firebase/auth";
 
-function Register() {
-    const [Loading, SetLoading] = useState(false)
-    const emailref = useRef()
-    const passref = useRef()
-    const currentUser = UseAuth()
+function LogIn() {
+    const[Email, SetEmail] = useState('')
+    const[Pass, SetPass] = useState('')
 
-    async function handleSignUp() {
+    const Register = async (e) => {
+        e.preventDefault()
+        try{
+            const user = createUserWithEmailAndPassword(auth,Email, Pass)
+            console.log(user)
 
-        SetLoading(true)
-        try {
-            await signup(emailref.current.value, passref.current.value)
-        } catch {
-            alert("erro")
+        } catch (error)
+        {
+            alert(error.message)
         }
-        SetLoading(false)
     }
+
+    const LogOut = async (e) => {
+        e.preventDefault()
+        await signOut(auth);
+    }
+
+
         return(
             <div>
                 <ContainerRegister>
                     <div>
+                        <h2>Login Page</h2>
                         <Label>Email</Label>
-                        <Input type="email" ref={emailref} placeholder="smthn@mail.com"/>
+                        <Input type="email" placeholder="smthn@mail.com" value={Email} onChange={(e) =>{SetEmail(e.target.value)}}/>
                         <Label>Password</Label>
-                        <Input type="password" ref={passref}/>
-                        <Link to='/Preferences'><ButtonC top={"1rem"} disable={Loading || currentUser != null} onClick={handleSignUp}>Sign Up</ButtonC></Link>
-                        <Link to='/Preferences'><ButtonC margin={".5rem"} right={"1rem"}>Login</ButtonC></Link>
+                        <Input type="password" value={Pass} onChange={(e) =>{SetPass(e.target.value)}}/>
+                        <Link to='/Preferences'><ButtonC margin={"0"} right={"1rem"}>Login</ButtonC></Link>
+                        <p>If you don't have an account click <Link to='/SignUp'><span onClick={Register}>here</span></Link></p>
+
                     </div>
                 </ContainerRegister>
                 <Footer/>
@@ -41,4 +49,4 @@ function Register() {
 }
 
 
-export default Register
+export default LogIn

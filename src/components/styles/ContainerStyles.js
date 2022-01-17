@@ -51,6 +51,24 @@ export const ContainerRegister = styled.div`
   
   & input
   {
-    margin-bottom: 2rem;
+    margin-bottom: 1em;
+  }
+  
+  & h2
+  {
+    color:white;
+    padding-bottom: 1rem;
+  }
+  
+  & span
+  {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  & p
+  {
+    color:white;
+    margin-top: 1rem;
   }
 `

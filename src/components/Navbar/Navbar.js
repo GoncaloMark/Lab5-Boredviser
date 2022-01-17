@@ -18,7 +18,7 @@ const Navbar = () => {
   const location = useLocation();
   console.log(location.pathname);
 
-  if (location.pathname === "/Register")
+  if (location.pathname === "/LogIn")
   {
     return (
         <div>
@@ -57,7 +57,7 @@ const Navbar = () => {
                   </NavLinks>
                 </NavItem>
 
-                <NavBtnLink to='/Register'>
+                <NavBtnLink to='/LogIn'>
                   <Button>SIGN UP</Button>
                 </NavBtnLink>
 
