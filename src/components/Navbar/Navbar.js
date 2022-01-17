@@ -18,7 +18,7 @@ const Navbar = () => {
   const location = useLocation();
   console.log(location.pathname);
 
-  if (location.pathname === "/LogIn" || location.pathname === "/Preferences")
+  if (location.pathname === "/LogIn")
   {
     return (
         <div>
@@ -41,6 +41,30 @@ const Navbar = () => {
           </Nav>
         </div>
     );
+  } else if(location.pathname === "/Preferences"){
+    return(
+        //Neste caso vai ter um ícone
+        <div>
+          <Nav>
+            <NavbarContainer>
+
+              <NavLogo to='/'><LogoStyle src={Logo}/></NavLogo>
+
+              <NavMenu>
+
+                <NavItem>
+                  <NavLinks to="/">
+                    Home
+                  </NavLinks>
+                </NavItem>
+
+              </NavMenu>
+
+            </NavbarContainer>
+          </Nav>
+        </div>
+    )
+
   } else {
     return (
         <div>
