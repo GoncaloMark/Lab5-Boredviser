@@ -16,7 +16,7 @@ function LandingPage()
         <div>
             <h2>Get started! Don't get bored!</h2>
             <p>Engage in genuine activities, here at Boredviser we are ready to connect you to the most suitable activities, personalized just for you!</p>
-            <Link to='/Register'><ButtonC top={"3rem"}>Get Started!</ButtonC></Link>
+            <Link to='/LogIn'><ButtonC top={"3rem"}>Get Started!</ButtonC></Link>
         </div>
         <Image src={ImagemLandingPage}/>
     </Container>
