@@ -14,7 +14,7 @@ function LogIn() {
     const Register = async (e) => {
         e.preventDefault()
         try{
-            const user = createUserWithEmailAndPassword(auth,Email, Pass)
+            const user = await createUserWithEmailAndPassword(auth, Email, Pass)
             console.log(user)
 
         } catch (error)
