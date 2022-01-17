@@ -13,9 +13,9 @@ export const Footer = () => {
                     </Column>
                     <Column>
                         <Heading>Social Media</Heading>
-                        <Flinks><FaFacebook style={{"margin-right" : "10px"}}/>Facebook</Flinks>
-                        <Flinks><FaTwitter style={{"margin-right" : "10px"}}/>Twitter</Flinks>
-                        <Flinks><FaInstagram style={{"margin-right" : "10px"}}/>Instagram</Flinks>
+                        <Flinks><FaFacebook style={{"margin-right" : "10px" , "margin-bottom" : "-2px"}}/>Facebook</Flinks>
+                        <Flinks><FaTwitter style={{"margin-right" : "10px" , "margin-bottom" : "-2px"}}/>Twitter</Flinks>
+                        <Flinks><FaInstagram style={{"margin-right" : "10px" , "margin-bottom" : "-2px"}}/>Instagram</Flinks>
                     </Column>
                 </Row>
                 <div>
