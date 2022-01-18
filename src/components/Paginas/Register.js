@@ -20,7 +20,7 @@ function LogIn() {
         try{
             const user = await createUserWithEmailAndPassword(auth, Email, Pass)
             alert("Created Account Successfully!")
-            navigate("/Preferences")
+            navigate("/Preferences/"+ User.uid)
         } catch (error)
         {
             alert(error.message)
@@ -31,8 +31,9 @@ function LogIn() {
         e.preventDefault()
         try{
             const user = await signInWithEmailAndPassword(auth, Email, Pass)
+            console.log(User)
             if(user){
-                navigate("/Preferences")
+                navigate("/Preferences/" + User.uid)
             }
 
         } catch (error)
@@ -41,10 +42,6 @@ function LogIn() {
         }
     }
 
-    const LogOut = async (e) => {
-        e.preventDefault()
-        await signOut(auth);
-    }
         return(
             <div>
                 <ContainerRegister>
@@ -61,6 +58,11 @@ function LogIn() {
                 <Footer/>
             </div>
         )
+}
+
+export const LogOut = async (e) => {
+    e.preventDefault()
+    await signOut(auth);
 }
 
 export default LogIn

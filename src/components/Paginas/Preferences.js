@@ -1,8 +1,8 @@
 import React from "react";
 
-function Preferences({User})
+function Preferences()
 {
-    return(<div>Preferences {User}</div> )
+    return(<div>Preferences</div> )
 }
 
 export default Preferences

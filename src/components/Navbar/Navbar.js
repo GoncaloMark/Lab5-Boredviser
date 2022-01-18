@@ -11,8 +11,7 @@ import {
 import {Button} from "../styles/ButtonStyles";
 import {LogoStyle} from "../styles/ImageStyles";
 import Logo from "../../Images/boredviser_logo.svg"
-
-
+import {LogOut} from "../Paginas/Register";
 
 const Navbar = () => {
   const location = useLocation();
@@ -41,9 +40,8 @@ const Navbar = () => {
           </Nav>
         </div>
     );
-  } else if(location.pathname === "/Preferences"){
+  } else if(location.pathname === "/"){
     return(
-        //Neste caso vai ter um ícone
         <div>
           <Nav>
             <NavbarContainer>
@@ -57,6 +55,10 @@ const Navbar = () => {
                     Home
                   </NavLinks>
                 </NavItem>
+
+                <NavBtnLink to="/LogIn">
+                  <Button>SIGN UP</Button>
+                </NavBtnLink>
 
               </NavMenu>
 
@@ -67,29 +69,29 @@ const Navbar = () => {
 
   } else {
     return (
-        <div>
-          <Nav>
-            <NavbarContainer>
+    <div>
+      <Nav>
+        <NavbarContainer>
 
-              <NavLogo to='/'><LogoStyle src={Logo}/></NavLogo>
+          <NavLogo to='/'><LogoStyle src={Logo}/></NavLogo>
 
-              <NavMenu>
+          <NavMenu>
 
-                <NavItem>
-                  <NavLinks to="/">
-                    Home
-                  </NavLinks>
-                </NavItem>
+            <NavItem>
+              <NavLinks to="/">
+                Home
+              </NavLinks>
+            </NavItem>
 
-                <NavBtnLink to='/LogIn'>
-                  <Button>SIGN UP</Button>
-                </NavBtnLink>
+            <NavBtnLink to="/">
+              <Button onClick={LogOut}>LOG OUT</Button>
+            </NavBtnLink>
 
-              </NavMenu>
+          </NavMenu>
 
-            </NavbarContainer>
-          </Nav>
-        </div>
+        </NavbarContainer>
+      </Nav>
+    </div>
     );
   }
 }

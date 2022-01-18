@@ -34,7 +34,7 @@ function App() {
                     <Routes>
                         <Route index element={<LandingPage/>} />
                         <Route path="LogIn" element={<LogIn/>}/>
-                        <Route path="Preferences" element={<Preferences/>}/>
+                        <Route path="Preferences/:uid" element={<Preferences/>}/>
                     </Routes>
 
                 </Router>
