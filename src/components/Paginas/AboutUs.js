@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "../styles/ContainerStyles";
-import transferir from "../../Images/transferir.png";
+import ua_logo from "../../Images/ua_logo.png";
 import { Footer } from "../Footer/Footer";
 import {ImageAbout} from "../styles/ImageStyles";
 
@@ -20,7 +20,7 @@ function AboutUs ({User})
         <br></br>
         <p style={{"font-weight": "600"}}>Gonçalo & Henrique</p>
     </div>
-    <ImageAbout src={transferir}/>
+    <ImageAbout src={ua_logo}/>
 </Container>
 <Footer />
 
