@@ -13,3 +13,12 @@ export const LogoStyle = styled.img`
   width: 150px;
   height: 100px;
 `
+
+
+export const ImageAbout = styled.img`
+display: flex;
+width: 350px;
+height: 100px;
+margin-top: 135px;
+margin-right: 20px;
+`

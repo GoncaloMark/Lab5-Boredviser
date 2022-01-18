@@ -10,6 +10,10 @@ export const Label = styled.label`
 
 export const Input = styled.input`
     display: block;
+    border-radius: 3px;
+    border: none;
+    padding: 5px;
+    padding-right: 20px;
     
   
   &:focus {
