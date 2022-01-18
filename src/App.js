@@ -6,6 +6,7 @@ import LandingPage from "./components/Paginas/LandingPage";
 import Navbar from "./components/Navbar/Navbar";
 import LogIn from "./components/Paginas/Register";
 import Preferences from "./components/Paginas/Preferences";
+import AboutUs from "./components/Paginas/AboutUs";
 
 const theme = {
     colors: {
@@ -35,6 +36,7 @@ function App() {
                         <Route index element={<LandingPage/>} />
                         <Route path="LogIn" element={<LogIn/>}/>
                         <Route path="Preferences" element={<Preferences/>}/>
+                        <Route path="AboutUs" element={<AboutUs/>}/>
                     </Routes>
 
                 </Router>

@@ -1,4 +1,4 @@
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   Nav,
   NavbarContainer,
@@ -8,8 +8,8 @@ import {
   NavLinks,
   NavBtnLink
 } from '../styles/NavbarStyles';
-import {Button} from "../styles/ButtonStyles";
-import {LogoStyle} from "../styles/ImageStyles";
+import { Button } from "../styles/ButtonStyles";
+import { LogoStyle } from "../styles/ImageStyles";
 import Logo from "../../Images/boredviser_logo.svg"
 
 
@@ -18,78 +18,92 @@ const Navbar = () => {
   const location = useLocation();
   console.log(location.pathname);
 
-  if (location.pathname === "/LogIn")
-  {
+  if (location.pathname === "/LogIn") {
     return (
-        <div>
-          <Nav>
-            <NavbarContainer>
+      <div>
+        <Nav>
+          <NavbarContainer>
 
-              <NavLogo to='/'><LogoStyle src={Logo}/></NavLogo>
+            <NavLogo to='/'><LogoStyle src={Logo} /></NavLogo>
 
-              <NavMenu>
+            <NavMenu>
 
-                <NavItem>
-                  <NavLinks to="/">
-                    Home
-                  </NavLinks>
-                </NavItem>
+              <NavItem>
+                <NavLinks to="/">
+                  Home
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/AboutUs">
+                  About
+                </NavLinks>
+              </NavItem>
 
-              </NavMenu>
+            </NavMenu>
 
-            </NavbarContainer>
-          </Nav>
-        </div>
+          </NavbarContainer>
+        </Nav>
+      </div>
     );
-  } else if(location.pathname === "/Preferences"){
-    return(
-        //Neste caso vai ter um ícone
-        <div>
-          <Nav>
-            <NavbarContainer>
+  } else if (location.pathname === "/Preferences") {
+    return (
+      //Neste caso vai ter um ícone
+      <div>
+        <Nav>
+          <NavbarContainer>
 
-              <NavLogo to='/'><LogoStyle src={Logo}/></NavLogo>
+            <NavLogo to='/'><LogoStyle src={Logo} /></NavLogo>
 
-              <NavMenu>
+            <NavMenu>
 
-                <NavItem>
-                  <NavLinks to="/">
-                    Home
-                  </NavLinks>
-                </NavItem>
+              <NavItem>
+                <NavLinks to="/">
+                  Home
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/AboutUs">
+                  About
+                </NavLinks>
+              </NavItem>
 
-              </NavMenu>
+            </NavMenu>
 
-            </NavbarContainer>
-          </Nav>
-        </div>
+          </NavbarContainer>
+        </Nav>
+      </div>
     )
 
   } else {
     return (
-        <div>
-          <Nav>
-            <NavbarContainer>
+      <div>
+        <Nav>
+          <NavbarContainer>
 
-              <NavLogo to='/'><LogoStyle src={Logo}/></NavLogo>
+            <NavLogo to='/'><LogoStyle src={Logo} /></NavLogo>
 
-              <NavMenu>
+            <NavMenu>
 
-                <NavItem>
-                  <NavLinks to="/">
-                    Home
-                  </NavLinks>
-                </NavItem>
+              <NavItem>
+                <NavLinks to="/">
+                  Home
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/AboutUs">
+                  About
+                </NavLinks>
+              </NavItem>
 
-                <NavBtnLink to='/LogIn'>
-                  <Button>SIGN UP</Button>
-                </NavBtnLink>
+              <NavBtnLink to='/LogIn'>
+                <Button>SIGN UP</Button>
+              </NavBtnLink>
 
-              </NavMenu>
+            </NavMenu>
 
-            </NavbarContainer>
-          </Nav>
-        </div>
+          </NavbarContainer>
+        </Nav>
+      </div>
     );
   }
 }
