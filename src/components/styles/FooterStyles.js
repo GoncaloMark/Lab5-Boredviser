@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {Link} from "react-router-dom";
 
 export const Box = styled.div`
   padding: 10px 10px;
@@ -29,7 +30,18 @@ export const Row = styled.div`
   grid-gap: 10px;
 `;
 
-export const Flinks = styled.a`
+export const Flinks = styled(Link)`
+  color: white;
+  margin-bottom: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: #038c8c;
+    transition: 200ms ease-in;
+  }
+`;
+export const LinksF = styled.a`
   color: white;
   margin-bottom: 5px;
   font-size: 14px;
