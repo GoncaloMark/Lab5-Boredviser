@@ -1,68 +1,49 @@
 import {ContainerRegister} from "../styles/ContainerStyles";
-import { useNavigate } from "react-router-dom";
 import {ButtonC} from "../styles/ButtonStyles";
 import {Footer} from "../Footer/Footer";
 import React, {useState} from "react";
 import {Input, Label} from "../styles/ResgisterStyles";
+import {useNavigate} from "react-router-dom";
 import {auth} from "../../Firebase/Firebase";
-import {createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword} from "firebase/auth";
+import {useAuth} from "../../Context/Authcontext";
 
-function LogIn() {
-    const[Email, SetEmail] = useState('')
-    const[Pass, SetPass] = useState('')
-    const[User, SetUser] = useState({})
+export function Registo() {
+
     const navigate = useNavigate()
 
-    onAuthStateChanged(auth, (currentUser) => {SetUser(currentUser)})
+    const [Email, SetEmail] = useState('')
+    const [Pass, SetPass] = useState('')
+    const {register, login} = useAuth()
 
-    const Register = async (e) => {
-        e.preventDefault()
-        try{
-            const user = await createUserWithEmailAndPassword(auth, Email, Pass)
-            alert("Created Account Successfully!")
-            navigate("/Preferences/"+ User.uid)
-        } catch (error)
-        {
-            alert(error.message)
-        }
-    }
 
-    const LogIn = async (e) => {
-        e.preventDefault()
-        try{
-            const user = await signInWithEmailAndPassword(auth, Email, Pass)
-            console.log(User)
-            if(user){
-                navigate("/Preferences/" + User.uid)
-            }
+            return(
 
-        } catch (error)
-        {
-            alert(error.message)
-        }
-    }
+                <div>
+                    <ContainerRegister>
+                        <div>
+                            <h2>Login Page</h2>
+                            <Label>Email</Label>
+                            <Input type="email" placeholder="smthn@mail.com" autocomplete="email" required value={Email} onChange={e => SetEmail(e.target.value)}/>
+                            <Label>Password</Label>
+                            <Input type="password" required value={Pass} onChange={e => SetPass(e.target.value)}/>
+                            <ButtonC onClick={async e => {
+                                e.preventDefault()
+                                await login(Email, Pass)
+                                    .then ((response) => {alert('Successfully Logged In'); navigate('/Preferences/' + response.user.uid)})
+                                    .catch((error) => alert(error.message))
+                            }} margin={"0"} right={"1rem"}>Login</ButtonC>
+                            <p>If you don't have an account click <span onClick={async e => {
+                                e.preventDefault()
+                                     await register(Email, Pass)
+                                    .then(async (response) => {alert('Successfully Registered'); console.log(response); navigate('/Preferences/' + response.user.uid)})
+                                    .catch((error) => alert(error.message))
+                            }}>here</span></p>
+                        </div>
+                    </ContainerRegister>
+                    <Footer/>
+                </div>
 
-        return(
-            <div>
-                <ContainerRegister>
-                    <div>
-                        <h2>Login Page</h2>
-                        <Label>Email</Label>
-                        <Input type="email" placeholder="smthn@mail.com" value={Email} onChange={(e) => {SetEmail(e.target.value)}}/>
-                        <Label>Password</Label>
-                        <Input type="password" value={Pass} onChange={(e) => {SetPass(e.target.value)}}/>
-                        <ButtonC onClick={LogIn} margin={"0"} right={"1rem"}>Login</ButtonC>
-                        <p>If you don't have an account click <span onClick={Register}>here</span></p>
-                    </div>
-                </ContainerRegister>
-                <Footer/>
-            </div>
-        )
+            )
 }
 
-export const LogOut = async (e) => {
-    e.preventDefault()
-    await signOut(auth);
-}
 
-export default LogIn

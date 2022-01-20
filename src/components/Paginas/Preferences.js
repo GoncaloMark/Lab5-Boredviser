@@ -1,8 +1,14 @@
 import React from "react";
+import {useParams} from "react-router-dom";
 
-function Preferences()
-{
-    return(<div>Preferences</div> )
+function Preferences() {
+    const {uid} = useParams()
+
+    if(uid)
+    {
+        return(<p>User ID: {uid}</p>)
+    }
+
 }
 
 export default Preferences

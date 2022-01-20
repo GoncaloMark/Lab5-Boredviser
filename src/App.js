@@ -1,11 +1,8 @@
 import React from "react";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import GlobalStyles from "./components/styles/GlobalStyles";
 import { ThemeProvider } from 'styled-components'
-import LandingPage from "./components/Paginas/LandingPage";
-import Navbar from "./components/Navbar/Navbar";
-import LogIn from "./components/Paginas/Register";
-import Preferences from "./components/Paginas/Preferences";
+import AppRouter from "./components/AppRouter";
+import AuthContextProvider from "./Context/Authcontext";
 
 const theme = {
     colors: {
@@ -22,25 +19,13 @@ const theme = {
 
 function App() {
     return (
-
-        <ThemeProvider theme={theme}>
-
-            <>
+        <AuthContextProvider>
+            <ThemeProvider theme={theme}>
                 <GlobalStyles/>
+                    <AppRouter/>
+            </ThemeProvider>
+        </AuthContextProvider>
 
-                <Router>
-                    <Navbar/>
-
-                    <Routes>
-                        <Route index element={<LandingPage/>} />
-                        <Route path="LogIn" element={<LogIn/>}/>
-                        <Route path="Preferences/:uid" element={<Preferences/>}/>
-                    </Routes>
-
-                </Router>
-            </>
-
-        </ThemeProvider>
     );
 }
 
