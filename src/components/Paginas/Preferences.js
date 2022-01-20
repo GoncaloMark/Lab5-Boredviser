@@ -10,9 +10,8 @@ function Preferences() {
 
     if(uid)
     {
-        return(<div><p>User ID: {uid}</p>
-            
-        <div style={{'display': 'flex','justify-content':'center'}}><Rei /></div>
+        return(<div>
+        <div style={{'display': 'flex','justify-content':'center'}}><Rei/></div>
         <Container style={{'justify-content':'center'}}>
             <div style={{'margin':'auto' , 'padding':'0px'}}>
                 
