@@ -72,4 +72,36 @@ export const ContainerRegister = styled.div`
     margin-top: 1rem;
     cursor: pointer;
   }
+  `
+
+export const ContainerP = styled.div`
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: ${({theme}) => theme.size.LPW};
+  height: ${({theme}) => theme.size.LPH};
+  margin: 1rem 2rem 0 0;
+  cursor: default;
+
+  & h2 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  & p {
+    color: #fff;
+    width: 75%;
+    line-height: 1.5rem;
+  }
+
+  & div {
+    padding-left: 40px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+  }
 `

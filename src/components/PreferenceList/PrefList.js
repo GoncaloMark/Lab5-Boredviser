@@ -68,9 +68,10 @@ export default App1;
  */
 
 
-
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import MySelect from "./MySelect.js";
+import {ContainerP} from "../styles/ContainerStyles";
+import {ButtonC} from "../styles/ButtonStyles";
 
 const userData = [
   { name: "education" },
@@ -84,24 +85,58 @@ const userData = [
   { name: "charity" }
 ];
 
+function Exception(message)
+{
+  this.message = message
+  this.name = "Exception"
+  alert(message)
+}
+
+function Destructuring(data)
+{
+  let {value: value1} = data[0]
+  let {value: value2} = data[1]
+  let {value: value3} = data[2]
+  let {value: value4} = data[3]
+  let {value: value5} = data[4]
+
+
+  const types = [value1, value2, value3, value4, value5]
+
+    types.forEach((value) =>
+        fetch("http://www.boredapi.com/api/activity?type=" + value)
+        .then(response => response.json())
+        .then(response => console.log(response)))
+}
+
 function Rei() {
-  const [users, setUsers] = useState([]);
+  const [UserData, SetUserData] = useState([]);
+  const [data, setData] = useState([])
 
   useEffect(() => {
-    setUsers(userData);
+    SetUserData(userData);
   }, []);
 
+  let ArrayMap = UserData.map((i) => ({ label: i.name, value: i.name }))
+
   return (
-    <div className="container my-4" style={{ width: "500px" }}>
-      <form className="form w-100">
-        <h2 style={{ 'color': 'white' , 'textAlign':'center'}}>Select Preferences</h2>
+      <div>
+    <div style={{ width: "500px", 'margin':'auto'}}>
+      <form>
+        <h2 style={{ 'color': 'white' , 'textAlign':'center', 'margin-bottom': '5px'}}>Select Preferences</h2>
         <MySelect
           allowSelectAll
-          onChange={(selected) => console.log(selected)}
-          options={userData.map((i) => ({ label: i.name, value: i.name }))}
+          onChange={(selected) => {setData(selected)}}
+          options={ArrayMap}
         />
       </form>
     </div>
+        <ContainerP>
+          <div style={{'margin':'auto' , 'padding':'0px'}}>
+            <ButtonC onClick={() => {if(data.length < 5){throw new Exception("SELECT 5 OPTIONS!")} else Destructuring(data)}}>Generate Activities</ButtonC>
+          </div>
+        </ContainerP>
+      </div>
   );
 }
 
