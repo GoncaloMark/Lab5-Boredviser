@@ -133,7 +133,7 @@ function Rei() {
     </div>
         <ContainerP>
           <div style={{'margin':'auto' , 'padding':'0px'}}>
-            <ButtonC onClick={() => {if(data.length < 5){throw new Exception("SELECT 5 OPTIONS!")} else Destructuring(data)}}>Generate Activities</ButtonC>
+            <ButtonC onClick={() => {if(data.length < 5 || data.length > 5){throw new Exception("SELECT 5 OPTIONS!")} else Destructuring(data)}}>Generate Activities</ButtonC>
           </div>
         </ContainerP>
       </div>
