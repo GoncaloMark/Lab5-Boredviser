@@ -70,7 +70,7 @@ export default App1;
 
 import React, {useEffect, useState} from "react";
 import MySelect from "./MySelect.js";
-import {ContainerP} from "../styles/ContainerStyles";
+import {Container} from "../styles/ContainerStyles";
 import {ButtonC} from "../styles/ButtonStyles";
 
 const userData = [
@@ -131,11 +131,11 @@ function Rei() {
         />
       </form>
     </div>
-        <ContainerP>
+        <Container>
           <div style={{'margin':'auto' , 'padding':'0px'}}>
             <ButtonC onClick={() => {if(data.length < 5 || data.length > 5){throw new Exception("SELECT 5 OPTIONS!")} else Destructuring(data)}}>Generate Activities</ButtonC>
           </div>
-        </ContainerP>
+        </Container>
       </div>
   );
 }

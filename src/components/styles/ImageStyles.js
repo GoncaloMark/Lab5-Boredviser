@@ -14,6 +14,16 @@ export const LogoStyle = styled.img`
   height: 100px;
 `
 
+export const ProfileStyle = styled.img`
+  display: flex;
+  width: 110px;
+  height: 100px;
+  cursor: default;
+  margin-top: 1rem;
+  margin-left: 8px;
+  margin-bottom: 15px;
+`
+
 
 export const ImageAbout = styled.img`
 display: flex;
