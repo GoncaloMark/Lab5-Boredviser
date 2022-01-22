@@ -5,6 +5,7 @@ import {Registo} from "./Paginas/Register";
 import Preferences from "./Paginas/Preferences";
 import React from "react";
 import AboutUs from "./Paginas/AboutUs";
+import Profile from "./Paginas/Profile";
 
 
 export default function AppRouter()
@@ -16,6 +17,7 @@ export default function AppRouter()
             <Route path="LogIn" element={<Registo/>}/>
             <Route path="Preferences/:uid" element={<Preferences/>}/>
             <Route path="AboutUs" element={<AboutUs/>}/>
+            <Route path="Profile" element={<Profile/>}/>
         </Routes>
     </Router>)
 

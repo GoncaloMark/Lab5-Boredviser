@@ -13,14 +13,26 @@ import {LogoStyle} from "../styles/ImageStyles";
 import Logo from "../../Images/boredviser_logo.svg"
 import {useAuth} from "../../Context/Authcontext";
 
-
 const Navbar = () => {
   const location = useLocation();
   console.log(location.pathname);
 
+
+  function Verify()
+  {
+    window.sessionStorage.getItem('userLogged')
+
+    if (window.sessionStorage.getItem('userLogged') != null)
+      return true
+    else return false
+  }
+
+  const V = Verify()
+
+
   const navigate = useNavigate()
 
-  const {currentUser, logout} = useAuth()
+  const {logout} = useAuth()
 
     return(
         <div>
@@ -37,11 +49,23 @@ const Navbar = () => {
                   </NavLinks>
                 </NavItem>
 
-                {!currentUser && location.pathname !== '/LogIn' && <NavBtnLink to="LogIn">
+                {V === true && <NavItem>
+                  <NavLinks to="/Profile">
+                    Profile
+                  </NavLinks>
+                </NavItem>}
+
+                {V === true && <NavItem>
+                  <NavLinks to={'/Preferences/' + window.sessionStorage.getItem('userLogged')}>
+                    Preferences
+                  </NavLinks>
+                </NavItem>}
+
+                {V === false && location.pathname !== '/LogIn' && <NavBtnLink to="LogIn">
                   <Button>SIGN UP</Button>
                 </NavBtnLink>}
 
-                {currentUser && <Button onClick={async e => {e.preventDefault(); logout(); alert('Logged Out'); navigate('/LogIn')}}>LOG OUT</Button>}
+                {V === true && <Button onClick={async e => {e.preventDefault(); logout(); alert('Logged Out'); window.sessionStorage.clear(); navigate('/LogIn')}}>LOG OUT</Button>}
 
               </NavMenu>
 

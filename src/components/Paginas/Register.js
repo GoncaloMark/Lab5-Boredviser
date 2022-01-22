@@ -15,7 +15,6 @@ export function Registo() {
     const [Pass, SetPass] = useState('')
     const {register, login} = useAuth()
 
-
             return(
 
                 <div>
@@ -23,19 +22,19 @@ export function Registo() {
                         <div>
                             <h2>Login Page</h2>
                             <Label>Email</Label>
-                            <Input type="email" placeholder="smthn@mail.com" autocomplete="email" required value={Email} onChange={e => SetEmail(e.target.value)}/>
+                            <Input type="email" placeholder="smthn@mail.com" autocomplete="email" required value={Email} onChange={e => SetEmail(e.target.value.trim())}/>
                             <Label>Password</Label>
                             <Input type="password" required value={Pass} onChange={e => SetPass(e.target.value)}/>
                             <ButtonC onClick={async e => {
                                 e.preventDefault()
                                 await login(Email, Pass)
-                                    .then ((response) => {alert('Successfully Logged In'); navigate('/Preferences/' + response.user.uid)})
+                                    .then ((response) => {alert('Successfully Logged In'); window.sessionStorage.setItem('userLogged', response.user.uid); navigate('/Preferences/' + response.user.uid);})
                                     .catch((error) => alert(error.message))
                             }} margin={"0"} right={"1rem"}>Login</ButtonC>
                             <p>If you don't have an account click <span onClick={async e => {
                                 e.preventDefault()
                                      await register(Email, Pass)
-                                    .then(async (response) => {alert('Successfully Registered'); console.log(response); navigate('/Preferences/' + response.user.uid)})
+                                    .then(async (response) => {alert('Successfully Registered'); console.log(response); window.sessionStorage.setItem('userLogged', response.user.uid); navigate('/Preferences/' + response.user.uid)})
                                     .catch((error) => alert(error.message))
                             }}>here</span></p>
                         </div>
