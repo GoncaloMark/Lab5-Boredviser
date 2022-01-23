@@ -1,8 +1,10 @@
 // Import the functions you need from the SDKs you need
 import {initializeApp} from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
+import{useState, useEffect} from "react";
 import {getAuth} from "firebase/auth";
-import {getStorage} from "firebase/storage"
+import {getStorage, ref, uploadBytes} from "firebase/storage"
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from 'firebase/auth'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -26,6 +28,42 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 export const storage = getStorage(app)
+
+export function useAuth()
+{
+    const[currentUser, SetcurrentUser] = useState(null)
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, user => SetcurrentUser(user));
+        return unsubscribe}, [])
+
+    return currentUser
+}
+
+export async function register(Email, Pass)
+{
+    return createUserWithEmailAndPassword(auth, Email, Pass)
+}
+
+export async function login(Email, Pass)
+{
+    return signInWithEmailAndPassword(auth, Email, Pass)
+}
+
+export async function logout()
+{
+    return signOut(auth)
+}
+
+export const uploadFiles = async (file, currentUser, setLoading) => {
+    if (!file) return;
+
+    const storageRef = ref(storage, currentUser.uid + `${file.name}`)
+    setLoading(true)
+    const snapshot = await uploadBytes(storageRef, file)
+    setLoading(false)
+
+    alert('File Uploaded!')
+}
 
 
 

@@ -7,7 +7,6 @@ import React from "react";
 import AboutUs from "./Paginas/AboutUs";
 import Profile from "./Paginas/Profile";
 
-
 export default function AppRouter()
 {
     return( <Router>

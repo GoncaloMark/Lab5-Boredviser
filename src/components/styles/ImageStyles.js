@@ -20,7 +20,7 @@ export const ProfileStyle = styled.img`
   height: 100px;
   cursor: default;
   margin-top: 1rem;
-  margin-left: 8px;
+  margin-left: .7rem;
   margin-bottom: 15px;
 `
 

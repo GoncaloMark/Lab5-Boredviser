@@ -11,28 +11,30 @@ import {
 import {Button} from "../styles/ButtonStyles";
 import {LogoStyle} from "../styles/ImageStyles";
 import Logo from "../../Images/boredviser_logo.svg"
-import {useAuth} from "../../Context/Authcontext";
+import {logout} from "../../Firebase/Firebase";
+
+export function useVerify(x='')
+{
+  window.sessionStorage.getItem(x)
+
+  if (window.sessionStorage.getItem(x) != null)
+    return true
+  else return false
+}
+
+export function useGetStorage(x='')
+{
+  return window.sessionStorage.getItem(x)
+}
 
 const Navbar = () => {
   const location = useLocation();
   console.log(location.pathname);
 
-
-  function Verify()
-  {
-    window.sessionStorage.getItem('userLogged')
-
-    if (window.sessionStorage.getItem('userLogged') != null)
-      return true
-    else return false
-  }
-
-  const V = Verify()
+  const V = useVerify('userLogged')
 
 
   const navigate = useNavigate()
-
-  const {logout} = useAuth()
 
     return(
         <div>

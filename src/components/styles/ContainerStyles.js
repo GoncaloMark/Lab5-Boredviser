@@ -115,16 +115,19 @@ export const ContainerP = styled.div`
     padding-top: 20px;
   }
   
-  & input {
-    display: none;
+  & input
+  {
+    color: white;
   }
 
-  & label
+  & button
   {
+    display: block;
     --green: #1BFD9C;
     font-size: 15px;
     padding: 0.7em 1em;
-    margin-right: 2px;
+    margin-right: 10em;
+    margin-top: 1em;
     cursor: pointer;
     letter-spacing: 0.06em;
     position: relative;
@@ -155,11 +158,27 @@ export const ContainerP = styled.div`
       transition: transform .4s ease-in-out;
       background: linear-gradient(to right,  transparent 1%, rgba(27,253,156,0.1) 60%, transparent 100%);
     }
+    
+    &:disabled
+    {
+      color: white;
+      background: gray;
+      box-shadow: none;
+      border: gray;
+      
+      &::before
+      {
+        transform: none;
+        transition: none;
+      }
+    }
 
     &:hover:before
     {
       transform: translateX(6.5em);
     }
   }
+
+    
 `
 

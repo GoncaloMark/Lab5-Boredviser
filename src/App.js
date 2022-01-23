@@ -2,7 +2,6 @@ import React from "react";
 import GlobalStyles from "./components/styles/GlobalStyles";
 import { ThemeProvider } from 'styled-components'
 import AppRouter from "./components/AppRouter";
-import AuthContextProvider from "./Context/Authcontext";
 
 const theme = {
     colors: {
@@ -19,13 +18,10 @@ const theme = {
 
 function App() {
     return (
-        <AuthContextProvider>
             <ThemeProvider theme={theme}>
                 <GlobalStyles/>
                     <AppRouter/>
             </ThemeProvider>
-        </AuthContextProvider>
-
     );
 }
 
