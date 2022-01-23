@@ -11,7 +11,7 @@ import {useGetStorage} from "../Navbar/Navbar";
 function LandingPage()
 {
     const G = useGetStorage('userLogged')
-    const{currentUser} = useAuth()
+    const currentUser = useAuth()
     return(
         <div>
         <Container>

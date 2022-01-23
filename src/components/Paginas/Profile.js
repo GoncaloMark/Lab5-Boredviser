@@ -11,8 +11,6 @@ function Profile() {
     const [loading, setLoading] = useState(false)
     const currentUser = useAuth()
 
-    console.log(currentUser.uid)
-
     const HandleChange = (e) => {
         e.preventDefault();
         if (e.target.files[0]) setFile(e.target.files[0])
