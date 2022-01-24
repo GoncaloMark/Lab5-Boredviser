@@ -32,3 +32,8 @@ height: 100px;
 margin-top: 135px;
 margin-right: 20px;
 `
+
+export const ImageContainer = styled.img`
+overflow: hidden;
+height: 200px;
+`
