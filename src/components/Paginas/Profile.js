@@ -3,8 +3,7 @@ import {ContainerP} from "../styles/ContainerStyles";
 import {Footer} from "../Footer/Footer";
 import {ProfileStyle} from "../styles/ImageStyles";
 import PersonIcon from "../../Images/PersonIcon.png"
-import {uploadFiles} from "../../Firebase/Firebase";
-import {useAuth} from "../../Firebase/Firebase";
+import {uploadFiles, useAuth} from "../../Firebase/Firebase";
 
 function Profile() {
     const [file, setFile] = useState(null)

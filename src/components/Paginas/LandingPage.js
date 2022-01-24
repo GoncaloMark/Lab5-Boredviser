@@ -5,13 +5,14 @@ import ImagemLandingPage from "../../Images/ImagemLandingPage.png";
 import {Footer} from "../Footer/Footer";
 import React from "react";
 import {Link} from "react-router-dom";
-import {useAuth} from "../../Firebase/Firebase";
 import {useGetStorage} from "../Navbar/Navbar";
+import {useAuth} from "../../Firebase/Firebase";
 
 function LandingPage()
 {
     const G = useGetStorage('userLogged')
     const currentUser = useAuth()
+
     return(
         <div>
         <Container>
