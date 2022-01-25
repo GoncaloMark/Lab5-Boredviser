@@ -122,12 +122,13 @@ function Rei() {
   return (
       <div>
     <div style={{ width: "500px", 'margin':'auto'}}>
-      <form>
+      <form style={{'width':'620px'}}>
         <h2 style={{ 'color': 'white' , 'textAlign':'center', 'margin-bottom': '5px'}}>Select Preferences</h2>
         <MySelect
           allowSelectAll
           onChange={(selected) => {setData(selected)}}
           options={ArrayMap}
+          closeMenuOnSelect={false}
         />
       </form>
     </div>
