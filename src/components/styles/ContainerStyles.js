@@ -113,6 +113,8 @@ export const ContainerP = styled.div`
     padding-left: 40px;
     padding-bottom: 10px;
     padding-top: 20px;
+    width: 50%;
+    height: 50%;
   }
   
   & input
@@ -140,47 +142,60 @@ export const ContainerP = styled.div`
     background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
     color: var(--green);
     box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
-
-    &:hover
-    {
-      color: #82ffc9;
-      box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
-    }
-
-    &::before
-    {
-      content: "";
-      position: absolute;
-      left: -1em;
-      width: 4em;
-      height:100%;
-      top:0;
-      transition: transform .4s ease-in-out;
-      background: linear-gradient(to right,  transparent 1%, rgba(27,253,156,0.1) 60%, transparent 100%);
-    }
+    
     
     &:disabled
     {
-      color: white;
-      background: gray;
-      box-shadow: none;
-      border: gray;
       
       &::before
       {
         transform: none;
         transition: none;
       }
-    }
+      
+      color: white;
+      background: gray;
+      box-shadow: none;
+      border: gray;
+      
+`
 
-    &:hover:before
-    {
-      transform: translateX(6.5em);
+export const Perfil = styled.div`
+ 
+  margin-top: 4.5rem;
+  padding-left: 40px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  width: 50%;
+  height: 50%;
+  margin-right: 7rem;
+  
+  
+  & h4
+  {
+    margin-top: 1rem;
+    margin-bottom: 15px;
+    
+  }
+  
+  & input
+  {
+    display: block;
+    margin-top: 1rem;
+    color: black;
+
+    &:focus {
+      outline: none !important;
+      border: 2px solid #1BFD9C;
+      box-shadow: 0 0 10px #719ECE;
     }
   }
 
-    
+  
+  
+  
 `
+
 
 
 export const Container_Card = styled.div`

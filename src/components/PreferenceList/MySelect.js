@@ -1,5 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from 'react'
 import {components, default as ReactSelect} from "react-select";
 import makeAnimated from "react-select/animated";
 

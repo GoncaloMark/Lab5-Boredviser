@@ -1,4 +1,3 @@
-import React from "react";
 import { Container } from "../styles/ContainerStyles";
 import ua_logo from "../../Images/ua_logo.png";
 import { Footer } from "../Footer/Footer";

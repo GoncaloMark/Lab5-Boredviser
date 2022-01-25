@@ -2,8 +2,8 @@ import Navbar from "./Navbar/Navbar";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import LandingPage from "./Paginas/LandingPage";
 import {Registo} from "./Paginas/Register";
+import React from 'react'
 import Preferences from "./Paginas/Preferences";
-import React from "react";
 import AboutUs from "./Paginas/AboutUs";
 import Profile from "./Paginas/Profile";
 import Cards from './Cards/Cards'
