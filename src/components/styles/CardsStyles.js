@@ -1,11 +1,28 @@
 import styled from 'styled-components'
 
-export const Card_Container = styled.div`
+export const Card_Container_cima = styled.div`
   width: 300px;
   overflow: hidden;
   box-shadow: 0px 0px 15px -5px;
   transition: 0.5s;
   animation: ease-in;
+  width: 20%;
+  margin: 15px 5px 15px 5px;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0px 0px 15px 0px;
+  }
+`;
+export const Card_Container_baixo = styled.div`
+  width: 300px;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px -5px;
+  transition: 0.5s;
+  animation: ease-in;
+  width: 20%;
+  margin: 15px 5px 15px 5px;
+  
 
   &:hover {
     transform: scale(1.01);
