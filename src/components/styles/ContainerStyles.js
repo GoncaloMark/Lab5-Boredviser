@@ -199,7 +199,6 @@ export const Perfil = styled.div`
 
 
 export const Container_Card = styled.div`
-
   display: flex;
   align-content: space-between;
   justify-content: center;
@@ -212,5 +211,6 @@ export const Container_Card = styled.div`
   height: ${({ theme }) => theme.size.CH};
   margin: 1rem auto auto;
   cursor: default;
+  margin-top: 50px;
   `
 
