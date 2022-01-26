@@ -31,13 +31,13 @@ export function Registo() {
                             <ButtonC onClick={async e => {
                                 e.preventDefault()
                                 await login(Email, Pass)
-                                    .then ((response) => {alert('Successfully Logged In'); UseStorage('userLogged', response.user); navigate('/Preferences/' + response.user.uid);})
+                                    .then ((response) => {alert('Successfully Logged In');UseStorage('userLogged', response.user.uid); navigate('/Preferences/' + response.user.uid);})
                                     .catch((error) => alert(error.message))
                             }} margin={"0"} right={"1rem"}>Login</ButtonC>
                             <p>If you don't have an account click <span onClick={async e => {
                                 e.preventDefault()
                                      await register(Email, Pass)
-                                    .then(async (response) => {alert('Successfully Registered'); UseStorage('userLogged', response.user); navigate('/Profile/')})
+                                    .then(async (response) => {alert('Successfully Registered'); UseStorage('userLogged', response.user.uid); navigate('/Profile/')})
                                     .catch((error) => alert(error.message))
                             }}>here</span></p>
                         </div>

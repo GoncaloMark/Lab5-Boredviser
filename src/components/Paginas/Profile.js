@@ -1,14 +1,21 @@
 import React, {useState} from "react";
-import {ContainerP} from "../styles/ContainerStyles";
+import {ContainerP, Perfil} from "../styles/ContainerStyles";
 import {Footer} from "../Footer/Footer";
 import {ProfileStyle} from "../styles/ImageStyles";
-import PersonIcon from "../../Images/PersonIcon.png"
 import {uploadFiles, useAuth} from "../../Firebase/Firebase";
+import {ButtonC} from "../styles/ButtonStyles";
+
 
 function Profile() {
     const [file, setFile] = useState(null)
     const [loading, setLoading] = useState(false)
+    const[photo, setPhoto] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png')
     const currentUser = useAuth()
+
+    const Profile = {
+        name: '',
+        photo: photo
+    }
 
     const HandleChange = (e) => {
         e.preventDefault();
@@ -17,7 +24,9 @@ function Profile() {
 
         const HandleClick = () => {
             uploadFiles(file, currentUser, setLoading);
+            setFile(null)
         }
+
 
         return (
             <div>
@@ -26,17 +35,22 @@ function Profile() {
                         <h2>Set up you Profile Page!</h2>
 
                         <h4>Submit A Picture</h4>
-                        <h4 style={{marginLeft: 2 + 'rem'}}>Name</h4>
 
-                        <ProfileStyle src={PersonIcon}/>
+                        <ProfileStyle src={photo}/>
 
                         <input type={"file"} id={"fileUpload"} onChange={HandleChange}/>
-                        <button id="submit" disabled={loading || !file} onClick={HandleClick}>Submit Image</button>
+                        {!file && <button id="submit" disabled>Submit Image</button>}
+                        {file && <ButtonC onClick={HandleClick} >Submit Image</ButtonC>}
 
                     </div>
 
-                </ContainerP>
 
+                    <Perfil>
+                        <h4 id={'name'}>Name</h4>
+                        <input type={"text"}/>
+                    </Perfil>
+
+                </ContainerP>
                 <Footer/>
 
             </div>

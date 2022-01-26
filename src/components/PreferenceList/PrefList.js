@@ -128,7 +128,6 @@ function Rei() {
           allowSelectAll
           onChange={(selected) => {setData(selected)}}
           options={ArrayMap}
-          closeMenuOnSelect={false}
         />
       </form>
     </div>

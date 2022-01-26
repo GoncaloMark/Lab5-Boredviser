@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Container, Column, Row, Flinks, Heading, Copyright, LinksF } from '../styles/FooterStyles';
 import { FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa'
 
