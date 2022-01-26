@@ -98,7 +98,7 @@ async function GetData(types, setLoading, arr=[], setc)
   await types.forEach(
       (value) => fetch("http://www.boredapi.com/api/activity?type=" + value)
           .then(response => response.json())
-          .then((response) => arr.push(response) )
+          .then((response) => arr.push(response))
   )
 
   setLoading(false)
@@ -136,7 +136,7 @@ function Rei()
     console.log(array)
 
   }
-  if( control>0 ) {
+  if(control>0) {
 
     return (
         <div>

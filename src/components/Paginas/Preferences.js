@@ -9,7 +9,6 @@ function Preferences() {
 
     if(uid)
     {
-
         return(<div>
         <div style={{'display': 'flex','justify-content':'center'}}>
             <Rei/>
