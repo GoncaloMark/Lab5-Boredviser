@@ -121,8 +121,8 @@ function Rei() {
 
   return (
       <div>
-    <div style={{ width: "500px", 'margin':'auto'}}>
-      <form style={{'width':'620px'}}>
+    <div style={{ width: "500px", 'margin':'auto' , 'textAlign' : 'center'}}>
+      <form style={{'width':'90%' , 'margin' : '25px'}}>
         <h2 style={{ 'color': 'white' , 'textAlign':'center', 'margin-bottom': '5px'}}>Select Preferences</h2>
         <MySelect
           allowSelectAll
