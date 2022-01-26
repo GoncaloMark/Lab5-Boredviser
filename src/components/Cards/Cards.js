@@ -5,8 +5,6 @@ import { Container_Card } from "../styles/ContainerStyles";
 import { ImageCard } from "../styles/ImageStyles";
 
 function Cards(props) {
-
-
     return (
         <>
         <h2 style={{ 'color': 'white' , 'textAlign':'center', 'margin-bottom': '5px' , 'margin-top': '50px'}}>Activities</h2>

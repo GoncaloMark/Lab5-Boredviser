@@ -25,7 +25,7 @@ export function Registo() {
                         <div>
                             <h2>Login Page</h2>
                             <Label>Email</Label>
-                            <Input type="email" placeholder="smthn@mail.com" autocomplete="email" required value={Email} onChange={e => SetEmail(e.target.value.trim())}/>
+                            <Input type="email" placeholder="smthn@mail.com" autocomplete="email" required value={Email} onChange={e => {SetEmail(e.target.value.trim())}}/>
                             <Label>Password</Label>
                             <Input type="password" required value={Pass} onChange={e => SetPass(e.target.value)}/>
                             <ButtonC onClick={async e => {
