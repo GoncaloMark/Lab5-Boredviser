@@ -51,6 +51,12 @@ const Navbar = () => {
                   </NavLinks>
                 </NavItem>
 
+                <NavItem>
+                  <NavLinks to="/AboutUs">
+                    About
+                  </NavLinks>
+                </NavItem>
+
                 {V === true && <NavItem>
                   <NavLinks to="/Profile">
                     Profile
