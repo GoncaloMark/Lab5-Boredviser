@@ -2,7 +2,7 @@
 import {initializeApp} from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import{useState, useEffect} from "react";
-import {getStorage, ref, uploadBytes} from "firebase/storage"
+import {getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage"
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from 'firebase/auth'
 
 // Your web app's Firebase configuration
@@ -48,12 +48,33 @@ export async function logout()
 export const uploadFiles = async (file, currentUser, setLoading) => {
     if (!file) return;
 
-    const storageRef = ref(storage, currentUser.uid + `${file.name}`)
+    const storageRef = ref(storage, currentUser.uid + `profile`)
     setLoading(true)
     const snapshot = await uploadBytes(storageRef, file)
     setLoading(false)
 
     alert('File Uploaded!')
+}
+
+export const DownloadFiles = async (currentUser, setPhoto) => {
+    await getDownloadURL(ref(storage, currentUser.uid + 'profile'))
+        .then((url) => {
+            console.log(currentUser)
+            console.log(url)
+            const xhr = new XMLHttpRequest();
+            xhr.responseType = 'blob';
+            xhr.onload = (event) => {
+
+                console.log('ola')
+                const blob = xhr.response;
+            };
+            xhr.open('GET', url);
+            xhr.send();
+
+            setPhoto(url)
+           // fetch(url)
+           //     .then((url) => setPhoto(url))
+        })
 }
 
 

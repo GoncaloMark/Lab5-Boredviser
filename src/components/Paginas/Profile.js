@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {ContainerP, Perfil} from "../styles/ContainerStyles";
 import {Footer} from "../Footer/Footer";
 import {ProfileStyle} from "../styles/ImageStyles";
-import {uploadFiles, useAuth} from "../../Firebase/Firebase";
+import {uploadFiles, useAuth, DownloadFiles} from "../../Firebase/Firebase";
 import {ButtonC} from "../styles/ButtonStyles";
 
 
@@ -11,11 +11,13 @@ function Profile() {
     const [loading, setLoading] = useState(false)
     const[photo, setPhoto] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png')
     const currentUser = useAuth()
-
-    const Profile = {
+    const[name, setName] = useState('')
+    const [Profile, setProfile] = useState({
         name: '',
-        photo: photo
-    }
+        photo: '',
+    })
+
+    //setProfile({name: Profile.name, photo:photo})
 
     const HandleChange = (e) => {
         e.preventDefault();
@@ -24,8 +26,11 @@ function Profile() {
 
         const HandleClick = () => {
             uploadFiles(file, currentUser, setLoading);
+            DownloadFiles(currentUser, setPhoto).then(()=>{});
+
             setFile(null)
         }
+
 
 
         return (
@@ -47,8 +52,12 @@ function Profile() {
 
                     <Perfil>
                         <h4 id={'name'}>Name</h4>
-                        <input type={"text"}/>
+                        <input type={"text"} onChange={e => setName(e.target.value)}/>
+
+                        <ButtonC>Submit Profile</ButtonC>
                     </Perfil>
+
+
 
                 </ContainerP>
                 <Footer/>
