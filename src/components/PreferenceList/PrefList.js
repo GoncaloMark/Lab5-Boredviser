@@ -1,77 +1,8 @@
-/* import React, { useEffect, useState } from "react";
-
-const userData = [
-  { name: "Education" },
-  { name: "Recreational" },
-  { name: "Social" },
-  { name: "DIY" },
-  { name: "Charity" }
-];
-
-function App1() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    setUsers(userData);
-  }, []);
-
-  const handleChange = (e) => {
-    const { name, checked } = e.target;
-    if (name === "allSelect") {
-      let tempUser = users.map((user) => {
-        return { ...user, isChecked: checked };
-      });
-      setUsers(tempUser);
-    } else {
-      let tempUser = users.map((user) =>
-        user.name === name ? { ...user, isChecked: checked } : user
-      );
-      setUsers(tempUser);
-    }
-
-    
-  };
-
-  return (
-    <div style={{ width: "500px" }}>
-      <form>
-        <h2 style={{ 'margin-bottom': '0' }}>Select Preferences</h2>
-        <div>
-          <input
-            type="checkbox"
-            name="allSelect"
-            // checked={
-            //   users.filter((user) => user?.isChecked !== true).length < 1
-            // }
-            checked={!users.some((user) => user?.isChecked !== true)}
-            onChange={handleChange}
-          />
-          <label style={{ 'color': 'white', "margin-left": "20px" }}>Select all</label>
-        </div>
-        {users.map((user, index) => (
-          <div key={index} style={{ "padding": "0px", "padding-left": "40px" }}>
-            <input
-              type="checkbox"
-              name={user.name}
-              checked={user?.isChecked || false}
-              onChange={handleChange}
-            />
-            <label style={{ "margin-left": "20px", 'color': 'white' }}>{user.name}</label>
-          </div>
-        ))}
-      </form>
-    </div>
-  );
-}
-
-export default App1;
- */
-
-
 import React, {useEffect, useState} from "react";
 import MySelect from "./MySelect.js";
-import {Container, ContainerP, } from "../styles/ContainerStyles";
+import {Container} from "../styles/ContainerStyles";
 import {ButtonC} from "../styles/ButtonStyles";
+import Cards from "../Cards/Cards.js";
 
 const userData = [
   { name: "education" },
@@ -114,7 +45,7 @@ function Rei()
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
   const [control, setControl] = useState(0)
-  const [text, setText] = useState('Genenrate Activities')
+  const [text, setText] = useState('Generate Activities')
 
   const array = []
 
@@ -140,11 +71,13 @@ function Rei()
     console.log(array)
 
   }
-  if( control>0 && loading==false) {
+  if( control>0 && loading===false) {
 
     return (
-        <div>
-          cards
+        <div style={{'marginTop':'0px'}}>
+          
+            <Cards />
+          
         </div>
     );
   }

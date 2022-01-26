@@ -4,6 +4,7 @@ import {Footer} from "../Footer/Footer";
 import {ProfileStyle} from "../styles/ImageStyles";
 import {uploadFiles, useAuth, DownloadFiles} from "../../Firebase/Firebase";
 import {ButtonC} from "../styles/ButtonStyles";
+import { InputPerfil } from "../styles/ProfileStyles";
 
 
 function Profile() {
@@ -50,9 +51,9 @@ function Profile() {
 
                     <Perfil>
                         <h4 id={'name'}>Name</h4>
-                        <input type={"text"} onChange={e => setName(e.target.value)}/>
+                        <InputPerfil type={"text"} onChange={e => setName(e.target.value)}/>
 
-                        <ButtonC>Submit Profile</ButtonC>
+                        <ButtonC style={{'paddingLeft':'13px','paddingRight':'13px'}}>Submit Profile</ButtonC>
                     </Perfil>
 
 

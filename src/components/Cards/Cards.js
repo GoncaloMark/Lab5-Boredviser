@@ -7,7 +7,7 @@ import { ImageCard } from "../styles/ImageStyles";
 function Cards(props) {
     return (
         <>
-        <h2 style={{ 'color': 'white' , 'textAlign':'center', 'margin-bottom': '5px' , 'margin-top': '50px'}}>Activities</h2>
+        <h2 style={{ 'color': 'white' , 'textAlign':'center', 'margin-bottom': '5px' , 'margin-top': '20px'}}>Activities</h2>
             <Container_Card>
                 <Card_Container>
                     <ImageCard />
@@ -48,7 +48,6 @@ function Cards(props) {
                 </Card_Container>
             </Container_Card>
 
-            <Footer />
         </>
     )
 }

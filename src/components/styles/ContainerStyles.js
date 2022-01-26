@@ -163,7 +163,7 @@ export const ContainerP = styled.div`
 
 export const Perfil = styled.div`
  
-  margin-top: 4.5rem;
+  margin-top: 4.9rem;
   padding-left: 40px;
   padding-bottom: 10px;
   padding-top: 20px;
