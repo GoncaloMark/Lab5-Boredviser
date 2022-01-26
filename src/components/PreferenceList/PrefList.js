@@ -141,7 +141,6 @@ function Rei()
 
   }
   if( control>0 && loading==false) {
-  if(control>0) {
 
     return (
         <div>
