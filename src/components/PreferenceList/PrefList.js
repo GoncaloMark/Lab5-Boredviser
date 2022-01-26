@@ -70,7 +70,7 @@ export default App1;
 
 import React, {useEffect, useState} from "react";
 import MySelect from "./MySelect.js";
-import {Container} from "../styles/ContainerStyles";
+import {Container, ContainerP, } from "../styles/ContainerStyles";
 import {ButtonC} from "../styles/ButtonStyles";
 
 const userData = [
@@ -101,7 +101,10 @@ async function GetData(types, setLoading, arr=[], setc)
           .then((response) => arr.push(response) )
   )
 
-  setLoading(false)
+  setTimeout(function(){ 
+    setLoading(false);
+
+  }, 3000);
   setc(1)
 }
 
@@ -111,6 +114,7 @@ function Rei()
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
   const [control, setControl] = useState(0)
+  const [text, setText] = useState('Genenrate Activities')
 
   const array = []
 
@@ -136,7 +140,7 @@ function Rei()
     console.log(array)
 
   }
-  if( control>0 ) {
+  if( control>0 && loading==false) {
 
     return (
         <div>
@@ -162,11 +166,13 @@ function Rei()
           </div>
           <Container>
             <div style={{'margin': 'auto', 'padding': '0px'}}>
-              <ButtonC onClick={() => {
+              <ButtonC 
+              onClick={() => {
                 if (data.length < 5 || data.length > 5) {
                   throw new Exception("SELECT 5 OPTIONS!")
-                } else Destructuring(data)
-              }}>Generate Activities</ButtonC>
+                } else {Destructuring(data); console.log('estou a carregar'); setText('Loading...')}
+              }}>{text}</ButtonC>
+              
             </div>
           </Container>
         </div>
