@@ -31,8 +31,6 @@ function Profile() {
             setFile(null)
         }
 
-
-
         return (
             <div>
                 <ContainerP>
