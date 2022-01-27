@@ -74,7 +74,7 @@ function Rei()
   if( control>0 && loading===false) {
 
     return (
-        <div style={{'marginTop':'0px'}}>
+        <div style={{'marginTop':'0px' , 'marginBottom':'15px'}}>
           
             <Cards />
           
@@ -83,10 +83,10 @@ function Rei()
   }
   else {
     return (
-        <div>
+        <div style={{'marginTop':'20px'}}>
           <div style={{width: "625px", 'margin': 'auto'}}>
             <form>
-              <h2 style={{'color': 'white', 'textAlign': 'center', 'margin-bottom': '5px'}}>Select Preferences</h2>
+              <h2 style={{'color': 'white', 'textAlign': 'center', 'margin-bottom': '5px'}}>Select themes to generate your activities</h2>
               <MySelect
                   allowSelectAll
                   onChange={(selected) => {

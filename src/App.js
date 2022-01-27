@@ -13,7 +13,7 @@ const theme = {
         LPH: '400px',
         RW: '350px',
         RH: '390px',
-        CW: '1600px',
+        CW: '1500px',
         CH: '300px'
     }
 }

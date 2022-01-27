@@ -5,6 +5,7 @@ import React, {useState} from "react";
 import {Input, Label} from "../styles/ResgisterStyles";
 import {useNavigate} from "react-router-dom";
 import {register, login} from "../../Firebase/Firebase";
+import { FaLock, FaSignInAlt, FaUser } from "react-icons/fa";
 
 export function UseStorage(x='', y='')
 {
@@ -23,10 +24,10 @@ export function Registo() {
                 <div>
                     <ContainerRegister>
                         <div>
-                            <h2>Login Page</h2>
-                            <Label>Email</Label>
+                            <h2>Login  <FaSignInAlt style={{'marginBottom':'-5px'}}/></h2>
+                            <Label>E-Mail <FaUser/></Label>
                             <Input type="email" placeholder="smthn@mail.com" autocomplete="email" required value={Email} onChange={e => {SetEmail(e.target.value.trim())}}/>
-                            <Label>Password</Label>
+                            <Label>Password <FaLock /></Label>
                             <Input type="password" required value={Pass} onChange={e => SetPass(e.target.value)}/>
                             <ButtonCR onClick={async e => {
                                 e.preventDefault()
