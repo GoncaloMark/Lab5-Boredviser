@@ -170,6 +170,7 @@ export const Perfil = styled.div`
   width: 50%;
   height: 50%;
   margin-right: 7rem;
+  flex-direction: row;
   
   
   & h4

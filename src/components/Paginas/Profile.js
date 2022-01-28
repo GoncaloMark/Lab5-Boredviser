@@ -63,8 +63,8 @@ function Profile() {
                         <ProfileStyle src={photo}/>
 
                         <input type={"file"} id={"fileUpload"} onChange={HandleChange}/>
-                        {!file && <button id="submit" disabled>Submit Image</button>}
-                        {file && <ButtonC onClick={HandleClick} >Submit Image</ButtonC>}
+                        {!file && <button id="submit" disabled style={{'marginTop' : '46px'}}>Submit Image</button>}
+                        {file && <ButtonC onClick={HandleClick} style={{'marginTop' : '46px'}}>Submit Image</ButtonC>}
 
                     </div>
 
@@ -75,9 +75,9 @@ function Profile() {
                         <h4 id={'age'}>Age</h4>
                         <InputPerfil type={"number"} onChange={e => setAge(e.target.value)}/>
 
-                         <ButtonC onClick={SendDB} style={{'paddingLeft':'13px','paddingRight':'13px', 'display': 'inline'}}>Submit</ButtonC>
+                         <ButtonC onClick={SendDB} style={{'paddingLeft':'13px','paddingRight':'13px', 'display': 'inline' , marginRight : '20px'}}>Submit</ButtonC>
 
-                        <ButtonC onClick={getDB} style={{'paddingLeft':'13px','paddingRight':'13px', 'display': 'inline'}}>Finish</ButtonC>
+                        <ButtonC onClick={getDB} style={{'paddingLeft':'13px','paddingRight':'13px', 'display': 'inline' , marginRight : '0px'}}>Finish</ButtonC>
                     </Perfil>
                 </ContainerP>
                 <Footer/>

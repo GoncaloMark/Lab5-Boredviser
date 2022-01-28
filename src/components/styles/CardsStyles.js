@@ -25,6 +25,7 @@ export const Card_H3 = styled.h3`
     margin: 0;
     padding: 0;
     color: #fff;
+    text-transform: capitalize;
 `
 
 export const Card_P = styled.p`

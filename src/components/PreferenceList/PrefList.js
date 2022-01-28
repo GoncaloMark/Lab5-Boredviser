@@ -44,7 +44,7 @@ function Rei()
     setTimeout(function(){
       setLoading(false);
 
-    }, 3000);
+    }, 4000);
     setc(1)
   }
 
