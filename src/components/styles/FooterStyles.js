@@ -4,8 +4,7 @@ import {Link} from "react-router-dom";
 export const Box = styled.div`
   padding: 10px 10px;
   background: #262626;
-  position: relative;
-  bottom: 0;
+  position: absolute;
   left: 0;
   width: 100%;
   margin-top: 76px;
