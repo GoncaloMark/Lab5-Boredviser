@@ -23,22 +23,6 @@ function Exception(message)
   alert(message)
 }
 
-async function GetData(types, setLoading, arr=[], setc)
-{
-  setLoading(true)
-  await types.forEach(
-      (value) => fetch("http://www.boredapi.com/api/activity?type=" + value)
-          .then(response => response.json())
-          .then((response) => arr.push(response))
-  )
-
-  setTimeout(function(){ 
-    setLoading(false);
-
-  }, 3000);
-  setc(1)
-}
-
 function Rei()
 {
   const [UserData, SetUserData] = useState([]);
@@ -46,8 +30,23 @@ function Rei()
   const [loading, setLoading] = useState(false)
   const [control, setControl] = useState(0)
   const [text, setText] = useState('Generate Activities')
+  const[Arr, setArr] = useState([])
 
-  const array = []
+  async function GetData(types, setLoading, setc)
+  {
+    setLoading(true)
+    await types.forEach(
+        (value) => fetch("http://www.boredapi.com/api/activity?type=" + value)
+            .then(response => response.json())
+            .then((response) => Arr.push(response))
+    )
+
+    setTimeout(function(){
+      setLoading(false);
+
+    }, 3000);
+    setc(1)
+  }
 
   useEffect(() => {
     SetUserData(userData);
@@ -66,17 +65,15 @@ function Rei()
 
     const types = [value1, value2, value3, value4, value5]
 
-    GetData(types, setLoading, array, setControl)
-
-    console.log(array)
-
+    GetData(types, setLoading, setControl)
   }
+
   if( control>0 && loading===false) {
 
     return (
         <div style={{'marginTop':'0px' , 'marginBottom':'15px'}}>
           
-            <Cards />
+            <Cards h={Arr}/>
           
         </div>
     );
@@ -103,7 +100,7 @@ function Rei()
               onClick={() => {
                 if (data.length < 5 || data.length > 5) {
                   throw new Exception("SELECT 5 OPTIONS!")
-                } else {Destructuring(data); console.log('estou a carregar'); setText('Loading...')}
+                } else {Destructuring(data); setText('Loading...')}
               }}>{text}</ButtonC>
               
             </div>

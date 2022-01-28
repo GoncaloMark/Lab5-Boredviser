@@ -5,6 +5,8 @@ import {ProfileStyle} from "../styles/ImageStyles";
 import {uploadFiles, useAuth, DownloadFiles} from "../../Firebase/Firebase";
 import {ButtonC} from "../styles/ButtonStyles";
 import { InputPerfil } from "../styles/ProfileStyles";
+import {collection, getDoc, setDoc, doc} from "firebase/firestore"
+import {DB} from "../../Firebase/Firebase"
 
 
 function Profile() {
@@ -12,27 +14,45 @@ function Profile() {
     const [loading, setLoading] = useState(false)
     const[photo, setPhoto] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png')
     const currentUser = useAuth()
+    const [age, setAge] = useState(0)
     const[name, setName] = useState('')
-    const [Profile, setProfile] = useState({
-        name: '',
-        photo: '',
-    })
+    const usersCollectionRef = collection(DB, "Profiles")
+
 
     //setProfile({name: Profile.name, photo:photo})
+
+    const SendDB = async () => {
+        await setDoc(doc(usersCollectionRef, currentUser.uid), {
+            name: name, age: age });
+
+        alert("Submitted!")
+    }
+
+    const getDB = async () =>
+    {
+        setLoading(true)
+
+        const docRef = doc(DB, "Profiles", currentUser.uid);
+        const docSnap = await getDoc(docRef);
+
+
+    }
+
 
     const HandleChange = (e) => {
         e.preventDefault();
         if (e.target.files[0]) setFile(e.target.files[0])
     }
 
-        const HandleClick = () => {
-            uploadFiles(file, currentUser, setLoading);
+        const HandleClick = (e) => {
+            e.preventDefault()
+            uploadFiles(file, currentUser);
             DownloadFiles(currentUser, setPhoto).then(()=>{});
 
             setFile(null)
         }
 
-        return (
+            return (
             <div>
                 <ContainerP>
                     <div>
@@ -51,18 +71,18 @@ function Profile() {
 
                     <Perfil>
                         <h4 id={'name'}>Name</h4>
-                        <InputPerfil type={"text"} onChange={e => setName(e.target.value)}/>
+                        <InputPerfil type={"text"} style={{marginBottom: 2 + 'em'}} onChange={e => setName(e.target.value)}/>
+                        <h4 id={'age'}>Age</h4>
+                        <InputPerfil type={"number"} onChange={e => setAge(e.target.value)}/>
 
-                        <ButtonC style={{'paddingLeft':'13px','paddingRight':'13px'}}>Submit Profile</ButtonC>
+                         <ButtonC onClick={SendDB} style={{'paddingLeft':'13px','paddingRight':'13px', 'display': 'inline'}}>Submit</ButtonC>
+
+                        <ButtonC onClick={getDB} style={{'paddingLeft':'13px','paddingRight':'13px', 'display': 'inline'}}>Finish</ButtonC>
                     </Perfil>
-
-
-
                 </ContainerP>
                 <Footer/>
 
-            </div>
-        )
+            </div>)
     }
 
 

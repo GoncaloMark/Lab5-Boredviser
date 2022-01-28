@@ -4,6 +4,8 @@ import {initializeApp} from "firebase/app";
 import{useState, useEffect} from "react";
 import {getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage"
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from 'firebase/auth'
+import {getFirestore} from 'firebase/firestore'
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -19,6 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 export const storage = getStorage(app)
+export const DB = getFirestore(app)
 
 export function useAuth()
 {
@@ -72,8 +75,6 @@ export const DownloadFiles = async (currentUser, setPhoto) => {
             xhr.send();
 
             setPhoto(url)
-           // fetch(url)
-           //     .then((url) => setPhoto(url))
         })
 }
 
