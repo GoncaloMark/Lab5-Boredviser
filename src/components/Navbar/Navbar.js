@@ -79,18 +79,25 @@ const Navbar = () => {
 
                 {V === true && <NavItem>
                   <NavLinks to={'/Preferences/' + window.sessionStorage.getItem('userLogged')}>
-                    Preferences
+                    Activities
                   </NavLinks>
                 </NavItem>}
+
+                {V === true && <NavItem>
+                  <NavLinks to={'/Quotes'}>
+                    Facts
+                  </NavLinks>
+                </NavItem>}
+
 
                 {V === false && location.pathname !== '/LogIn' && <NavBtnLink to="LogIn">
                   <Button>SIGN UP</Button>
                 </NavBtnLink>}
 
                 {V === true && <Button onClick={async e => {e.preventDefault(); logout(); alert('Logged Out'); window.sessionStorage.clear(); navigate('/LogIn')}}>LOG OUT</Button>}
-                {F === false && V === true && <div>
+               {/* {F === false && V === false && <div>
                 <MostraPerfil/>
-              </div>}
+              </div>}*/}
 
               </NavMenu>
 

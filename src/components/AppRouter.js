@@ -6,7 +6,7 @@ import React from 'react'
 import Preferences from "./Paginas/Preferences";
 import AboutUs from "./Paginas/AboutUs";
 import Profile from "./Paginas/Profile";
-import Cards from './Cards/Cards'
+import Quotes from "./Paginas/Quotes";
 
 export default function AppRouter()
 {
@@ -18,7 +18,7 @@ export default function AppRouter()
             <Route path="Preferences/:uid" element={<Preferences/>}/>
             <Route path="AboutUs" element={<AboutUs/>}/>
             <Route path="Profile" element={<Profile/>}/>
-            <Route path="Cards" element={<Cards/>}/>
+            <Route path="Quotes" element={<Quotes/>}/>
         </Routes>
     </Router>)
 
