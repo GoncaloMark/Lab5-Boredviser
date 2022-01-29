@@ -24,6 +24,17 @@ export const ProfileStyle = styled.img`
   margin-bottom: 15px;
 `
 
+export const NavLog = styled.img`
+  display: flex;
+  width: 50px;
+  height: 50px;
+  cursor: default;
+  margin-left: .7rem;
+  float:left;
+`
+
+
+
 
 export const ImageAbout = styled.img`
 display: flex;

@@ -12,10 +12,22 @@ import {Button} from "../styles/ButtonStyles";
 import {LogoStyle} from "../styles/ImageStyles";
 import Logo from "../../Images/boredviser_logo.svg"
 import {logout} from "../../Firebase/Firebase";
+import MostraPerfil from "../MostraPerfil/MostraPerfil";
+import React from "react";
 
 export function useVerify(x='')
 {
   window.sessionStorage.getItem(x)
+
+  if (window.sessionStorage.getItem(x) != null)
+    return true
+  else return false
+}
+
+export function useVerifyLocal(x='')
+{
+  window.localStorage.getItem(x)
+  console.log(localStorage)
 
   if (window.sessionStorage.getItem(x) != null)
     return true
@@ -32,6 +44,8 @@ const Navbar = () => {
   console.log(location.pathname);
 
   const V = useVerify('userLogged')
+
+  const F = useVerifyLocal('User')
 
 
   const navigate = useNavigate()
@@ -74,6 +88,9 @@ const Navbar = () => {
                 </NavBtnLink>}
 
                 {V === true && <Button onClick={async e => {e.preventDefault(); logout(); alert('Logged Out'); window.sessionStorage.clear(); navigate('/LogIn')}}>LOG OUT</Button>}
+                {F === false && V === true && <div>
+                <MostraPerfil/>
+              </div>}
 
               </NavMenu>
 

@@ -53,7 +53,6 @@ export const NavItem = styled.li`
   }
 `;
 
-
 export const NavLinks = styled(Link)`
   color: #fff;
   display: flex;

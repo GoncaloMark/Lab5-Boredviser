@@ -33,17 +33,18 @@ function Profile() {
 
     const getDB = async () =>
     {
-        setLoading(true)
-
         const docRef = doc(DB, "Profiles", currentUser.uid);
         const docSnap = await getDoc(docRef);
 
         await setUserData({data: docSnap.data()})
 
-        localStorage.setItem('User', 'True')
-
         navigate('/Preferences/' + currentUser.uid)
+
     }
+
+    localStorage.setItem('User', JSON.stringify(userData.data))
+
+
 
     const HandleChange = (e) => {
         e.preventDefault();
@@ -52,42 +53,54 @@ function Profile() {
 
         const HandleClick = (e) => {
             e.preventDefault()
-            uploadFiles(file, currentUser);
+            uploadFiles(file, currentUser, setLoading);
             DownloadFiles(currentUser, setPhoto).then(()=>{});
 
             setFile(null)
         }
-
-            return (
-            <div>
-                <ContainerP>
+                return (
                     <div>
-                        <h2>Set up you Profile Page!</h2>
+                        <ContainerP>
+                            <div>
+                                <h2>Set up you Profile Page!</h2>
 
-                        <h4>Submit A Picture</h4>
+                                <h4>Submit A Picture</h4>
 
-                        <ProfileStyle src={photo}/>
+                                <ProfileStyle src={photo}/>
 
-                        <input type={"file"} id={"fileUpload"} onChange={HandleChange}/>
-                        {!file && <button id="submit" disabled style={{'marginTop' : '46px'}}>Submit Image</button>}
-                        {file && <ButtonC onClick={HandleClick} style={{'marginTop' : '46px'}}>Submit Image</ButtonC>}
+                                <input type={"file"} id={"fileUpload"} onChange={HandleChange}/>
+                                {!file &&
+                                <button id="submit" disabled style={{'marginTop': '46px'}}>Submit Image</button>}
+                                {file &&
+                                <ButtonC onClick={HandleClick} style={{'marginTop': '46px'}}>Submit Image</ButtonC>}
 
-                    </div>
+                            </div>
 
-                    <Perfil>
-                        <h4 id={'name'}>Name</h4>
-                        <InputPerfil type={"text"} style={{marginBottom: 2 + 'em'}} onChange={e => setName(e.target.value)}/>
-                        <h4 id={'age'}>Age</h4>
-                        <InputPerfil type={"number"} onChange={e => setAge(e.target.value)}/>
+                            <Perfil>
+                                <h4 id={'name'}>Name</h4>
+                                <InputPerfil type={"text"} style={{marginBottom: 2 + 'em'}}
+                                             onChange={e => setName(e.target.value)}/>
+                                <h4 id={'age'}>Age</h4>
+                                <InputPerfil type={"number"} onChange={e => setAge(e.target.value)}/>
 
-                         <ButtonC onClick={SendDB} style={{'paddingLeft':'13px','paddingRight':'13px', 'display': 'inline' , marginRight : '20px'}}>Submit</ButtonC>
+                                <ButtonC onClick={SendDB} style={{
+                                    'paddingLeft': '13px',
+                                    'paddingRight': '13px',
+                                    'display': 'inline',
+                                    marginRight: '20px'
+                                }}>Submit</ButtonC>
 
-                        <ButtonC onClick={getDB} style={{'paddingLeft':'13px','paddingRight':'13px', 'display': 'inline' , marginRight : '0px'}}>Finish</ButtonC>
-                    </Perfil>
-                </ContainerP>
-                <Footer/>
+                                <ButtonC onClick={getDB} style={{
+                                    'paddingLeft': '13px',
+                                    'paddingRight': '13px',
+                                    'display': 'inline',
+                                    marginRight: '0px'
+                                }}>Finish</ButtonC>
+                            </Perfil>
+                        </ContainerP>
+                        <Footer/>
 
-            </div>)
+                    </div>)
     }
 
 
