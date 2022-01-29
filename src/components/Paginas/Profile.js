@@ -7,6 +7,7 @@ import {ButtonC} from "../styles/ButtonStyles";
 import { InputPerfil } from "../styles/ProfileStyles";
 import {collection, getDoc, setDoc, doc} from "firebase/firestore"
 import {DB} from "../../Firebase/Firebase"
+import {useNavigate} from "react-router-dom";
 
 
 function Profile() {
@@ -17,13 +18,15 @@ function Profile() {
     const [age, setAge] = useState(0)
     const[name, setName] = useState('')
     const usersCollectionRef = collection(DB, "Profiles")
+    const[userData, setUserData] = useState({})
+    const navigate = useNavigate()
 
 
     //setProfile({name: Profile.name, photo:photo})
 
     const SendDB = async () => {
         await setDoc(doc(usersCollectionRef, currentUser.uid), {
-            name: name, age: age });
+            name: name, age: age, photo: photo});
 
         alert("Submitted!")
     }
@@ -35,9 +38,12 @@ function Profile() {
         const docRef = doc(DB, "Profiles", currentUser.uid);
         const docSnap = await getDoc(docRef);
 
+        await setUserData({data: docSnap.data()})
 
+        localStorage.setItem('User', 'True')
+
+        navigate('/Preferences/' + currentUser.uid)
     }
-
 
     const HandleChange = (e) => {
         e.preventDefault();
@@ -67,7 +73,6 @@ function Profile() {
                         {file && <ButtonC onClick={HandleClick} style={{'marginTop' : '46px'}}>Submit Image</ButtonC>}
 
                     </div>
-
 
                     <Perfil>
                         <h4 id={'name'}>Name</h4>

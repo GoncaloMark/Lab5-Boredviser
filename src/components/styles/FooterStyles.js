@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export const Box = styled.div`
   padding: 10px 10px;
   background: #262626;
+  position: absolute;
   left: 0;
   width: 100%;
   bottom:0

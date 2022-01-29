@@ -61,8 +61,6 @@ function Rei()
     } else return 0
   }
 
-
-
   async function GetData(types, setLoading, setc, photos)
   {
     setLoading(true)
