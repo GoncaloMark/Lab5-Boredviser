@@ -1,7 +1,9 @@
 import React from "react";
+import { ButtonC } from "../styles/ButtonStyles";
 import { Card_Container, Card_Content, Card_H3, Card_P, Card_Title } from "../styles/CardsStyles";
 import { Container_Card } from "../styles/ContainerStyles";
 import { ImageCard } from "../styles/ImageStyles";
+import { NavLinks } from "../styles/NavbarStyles";
 
 function Cards(props) {
 
@@ -10,6 +12,12 @@ function Cards(props) {
 
     console.log(lista)
     console.log(fotos)
+
+    const reload = () => {
+
+        window.location.reload(false);
+
+    }
 
 
     return (
@@ -53,6 +61,8 @@ function Cards(props) {
                     </Card_Content>
                 </Card_Container>
             </Container_Card>
+
+            <div style={{'textAlign' : 'center', 'marginTop':'20px'}}><ButtonC onClick={reload}>GENERATE NEW ACTIVITIES</ButtonC></div>
 
         </>
     )
