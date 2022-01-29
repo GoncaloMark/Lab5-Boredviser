@@ -36,4 +36,5 @@ margin-right: 20px;
 export const ImageCard = styled.img`
 overflow: hidden;
 height: 150px;
+width: 100%;
 `
