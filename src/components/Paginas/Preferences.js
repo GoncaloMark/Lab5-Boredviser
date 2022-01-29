@@ -10,7 +10,7 @@ function Preferences() {
     if(uid)
     {
         return(<div>
-        <div style={{'display': 'flex','justify-content':'center'}}>
+        <div style={{'display': 'flex','justify-content':'center' , 'marginBottom' : '20px'}}>
             <Rei/>
         </div>
         <Footer />
