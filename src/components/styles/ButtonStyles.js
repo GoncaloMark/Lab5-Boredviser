@@ -123,7 +123,7 @@ export const ButtonQ = styled.button`
   margin-top:  ${({top}) => top};
   margin-left: ${({margin}) => margin};
   margin-right:  ${({right}) => right};
-  margin-bottom:  ${({top}) => top};
+  margin-bottom:  20px;
   font-family: inherit;
   border-radius: 0.6em;
   overflow: hidden;

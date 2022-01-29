@@ -1,6 +1,6 @@
 import { Container } from "../styles/ContainerStyles";
 import { ButtonC } from "../styles/ButtonStyles";
-import { ImageQ } from "../styles/ImageStyles";
+import { Image } from "../styles/ImageStyles";
 import ImagemLandingPage from "../../Images/ImagemLandingPage.png";
 import { Footer } from "../Footer/Footer";
 import React from 'react'
@@ -20,7 +20,7 @@ function LandingPage() {
                     {!V && <Link to='/LogIn'><ButtonC top={"3rem"}>Get Started!</ButtonC></Link>}
                     {V && <Link to={'/Preferences/' + G}><ButtonC top={"3rem"}>Get Started!</ButtonC></Link>}
                 </div>
-                <ImageQ src={ImagemLandingPage} />
+                <Image src={ImagemLandingPage} />
             </Container>
             <Footer />
         </div>

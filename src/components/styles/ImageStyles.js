@@ -8,17 +8,6 @@ export const Image = styled.img`
     margin-right: 20px;
 `
 
-export const ImageQ = styled.img`
-    display: flex;
-    width: 350px;
-    height: 300px;
-    margin-top: 4rem;
-    margin-right: 20px;
-    margin-left: 10px;
-    position: absolute;
-    right: 0;
-`
-
 export const LogoStyle = styled.img`
   display: flex;
   width: 150px;
