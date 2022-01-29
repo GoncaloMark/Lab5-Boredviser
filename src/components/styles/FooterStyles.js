@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Box = styled.div`
   padding: 10px 10px;

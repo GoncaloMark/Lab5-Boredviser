@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from 'react'
-import {components, default as ReactSelect} from "react-select";
+import { components, default as ReactSelect } from "react-select";
 import makeAnimated from "react-select/animated";
 
 const Option = (props) => {

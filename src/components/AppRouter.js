@@ -1,24 +1,23 @@
 import Navbar from "./Navbar/Navbar";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from "./Paginas/LandingPage";
-import {Registo} from "./Paginas/Register";
+import { Registo } from "./Paginas/Register";
 import React from 'react'
 import Preferences from "./Paginas/Preferences";
 import AboutUs from "./Paginas/AboutUs";
 import Profile from "./Paginas/Profile";
 import Quotes from "./Paginas/Quotes";
 
-export default function AppRouter()
-{
-    return( <Router>
-        <Navbar/>
+export default function AppRouter() {
+    return (<Router>
+        <Navbar />
         <Routes>
-            <Route index element={<LandingPage/>} />
-            <Route path="LogIn" element={<Registo/>}/>
-            <Route path="Preferences/:uid" element={<Preferences/>}/>
-            <Route path="AboutUs" element={<AboutUs/>}/>
-            <Route path="Profile" element={<Profile/>}/>
-            <Route path="Quotes" element={<Quotes/>}/>
+            <Route index element={<LandingPage />} />
+            <Route path="LogIn" element={<Registo />} />
+            <Route path="Preferences/:uid" element={<Preferences />} />
+            <Route path="AboutUs" element={<AboutUs />} />
+            <Route path="Profile" element={<Profile />} />
+            <Route path="Quotes" element={<Quotes />} />
         </Routes>
     </Router>)
 
