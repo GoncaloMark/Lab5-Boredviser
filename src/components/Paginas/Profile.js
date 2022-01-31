@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
 import { ContainerP, Perfil } from "../styles/ContainerStyles";
 import { Footer } from "../Footer/Footer";
 import { ProfileStyle } from "../styles/ImageStyles";
-import { uploadFiles, useAuth, DownloadFiles } from "../../Firebase/Firebase";
+import { uploadFiles, useAuth, DownloadFiles} from "../../Firebase/Firebase";
 import { ButtonC } from "../styles/ButtonStyles";
 import { InputPerfil } from "../styles/ProfileStyles";
-import { collection, getDoc, setDoc, doc } from "firebase/firestore"
+import { collection, setDoc, doc } from "firebase/firestore"
 import { DB } from "../../Firebase/Firebase"
 import { useNavigate } from "react-router-dom";
-
+import Profilecontext from "../../ProfileContext";
 
 function Profile() {
     const [file, setFile] = useState(null)
@@ -18,46 +18,44 @@ function Profile() {
     const [age, setAge] = useState(0)
     const [name, setName] = useState('')
     const usersCollectionRef = collection(DB, "Profiles")
-    const [userData, setUserData] = useState({})
     const navigate = useNavigate()
 
+    const {setVerify, setVerify2} = useContext(Profilecontext)
 
-    //setProfile({name: Profile.name, photo:photo})
-
-    const SendDB = async () => {
+    const SendDB = async (currentUser) => {
         await setDoc(doc(usersCollectionRef, currentUser.uid), {
             name: name, age: age, photo: photo
         });
-
-        alert("Submitted!")
     }
-
-    const getDB = async () => {
-        const docRef = doc(DB, "Profiles", currentUser.uid);
-        const docSnap = await getDoc(docRef);
-
-        await setUserData({ data: docSnap.data() })
-
-        navigate('/Preferences/' + currentUser.uid)
-
-    }
-
-    localStorage.setItem('User', JSON.stringify(userData.data))
-
-
 
     const HandleChange = (e) => {
         e.preventDefault();
         if (e.target.files[0]) setFile(e.target.files[0])
     }
 
-    const HandleClick = (e) => {
+    const HandleClick = async (e) => {
         e.preventDefault()
         uploadFiles(file, currentUser, setLoading);
-        DownloadFiles(currentUser, setPhoto).then(() => { });
+
+        DownloadFiles(currentUser, setPhoto).then(() => {})
 
         setFile(null)
     }
+
+    const HandleClick2 = (e) => {
+        e.preventDefault()
+        SendDB(currentUser)
+
+        setVerify2(false)
+        setVerify(false)
+    }
+
+    const HandleClick3 = (e) => {
+        e.preventDefault()
+        setVerify(true)
+        alert('Submitted!')
+    }
+
     return (
         <div>
             <ContainerP>
@@ -83,14 +81,14 @@ function Profile() {
                     <h4 id={'age'}>Age</h4>
                     <InputPerfil type={"number"} onChange={e => setAge(e.target.value)} />
 
-                    <ButtonC onClick={SendDB} style={{
+                    <ButtonC onClick={HandleClick2} style={{
                         'paddingLeft': '13px',
                         'paddingRight': '13px',
                         'display': 'inline',
                         marginRight: '20px'
                     }}>Submit</ButtonC>
 
-                    <ButtonC onClick={getDB} style={{
+                    <ButtonC onClick={HandleClick3} style={{
                         'paddingLeft': '13px',
                         'paddingRight': '13px',
                         'display': 'inline',

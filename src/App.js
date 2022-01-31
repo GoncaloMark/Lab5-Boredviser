@@ -2,6 +2,7 @@ import React from "react";
 import GlobalStyles from "./components/styles/GlobalStyles";
 import { ThemeProvider } from 'styled-components'
 import AppRouter from "./components/AppRouter";
+import {Profilecontextprovider} from "./ProfileContext"
 
 const theme = {
     colors: {
@@ -18,12 +19,17 @@ const theme = {
     }
 }
 
+
 function App() {
     return (
+
         <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <AppRouter />
+            <Profilecontextprovider>
+            <GlobalStyles/>
+            <AppRouter/>
+            </Profilecontextprovider>
         </ThemeProvider>
+
     );
 }
 

@@ -11,21 +11,13 @@ import {
 import { Button } from "../styles/ButtonStyles";
 import { LogoStyle } from "../styles/ImageStyles";
 import Logo from "../../Images/boredviser_logo.svg"
-import { logout } from "../../Firebase/Firebase";
+import {logout, useAuth} from "../../Firebase/Firebase";
 import MostraPerfil from "../MostraPerfil/MostraPerfil";
-import React from "react";
+import React, {useContext} from "react";
+import Profilecontext from "../../ProfileContext";
 
 export function useVerify(x = '') {
   window.sessionStorage.getItem(x)
-
-  if (window.sessionStorage.getItem(x) != null)
-    return true
-  else return false
-}
-
-export function useVerifyLocal(x = '') {
-  window.localStorage.getItem(x)
-  console.log(localStorage)
 
   if (window.sessionStorage.getItem(x) != null)
     return true
@@ -42,8 +34,9 @@ const Navbar = () => {
 
   const V = useVerify('userLogged')
 
-  const F = useVerifyLocal('User')
+  const {verifyUser} = useContext(Profilecontext)
 
+  const currentUser = useAuth()
 
   const navigate = useNavigate()
 
@@ -91,10 +84,10 @@ const Navbar = () => {
               <Button>SIGN UP</Button>
             </NavBtnLink>}
 
-            {V === true && <Button onClick={async e => { e.preventDefault(); logout(); alert('Logged Out'); window.sessionStorage.clear(); navigate('/LogIn') }}>LOG OUT</Button>}
-            {/* {F === false && V === false && <div>
+            {V === true && currentUser && <Button onClick={async e => { e.preventDefault(); logout(); alert('Logged Out'); window.sessionStorage.clear(); navigate('/LogIn') }}>LOG OUT</Button>}
+            {V === true && verifyUser === true && <div>
                 <MostraPerfil/>
-              </div>}*/}
+              </div>}
 
           </NavMenu>
 

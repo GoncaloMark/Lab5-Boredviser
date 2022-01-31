@@ -6,7 +6,6 @@ import {getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage"
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from 'firebase/auth'
 import {getFirestore} from 'firebase/firestore'
 
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyBhGVwg9atkM5BuKRSYg0PXMUmwO1Qklow",
@@ -45,6 +44,7 @@ export async function login(Email, Pass)
 
 export async function logout()
 {
+    window.location.reload(false);
     return signOut(auth)
 }
 
@@ -77,6 +77,7 @@ export const DownloadFiles = async (currentUser, setPhoto) => {
             setPhoto(url)
         })
 }
+
 
 
 

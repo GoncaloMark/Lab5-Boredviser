@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import { ButtonC } from "../styles/ButtonStyles";
 import { Card_Container, Card_Content, Card_H3, Card_P, Card_Title } from "../styles/CardsStyles";
 import { Container_Card } from "../styles/ContainerStyles";
 import { ImageCard } from "../styles/ImageStyles";
-import { NavLinks } from "../styles/NavbarStyles";
+import Profilecontext from "../../ProfileContext";
 
 function Cards(props) {
 
@@ -14,9 +14,7 @@ function Cards(props) {
     console.log(fotos)
 
     const reload = () => {
-
         window.location.reload(false);
-
     }
 
 
